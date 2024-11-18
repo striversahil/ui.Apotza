@@ -4,8 +4,8 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "Finance App",
-  description: "A Complete Finance App",
+  title: "Apotza Ui Kit",
+  description: "Apotza Ui Kit",
 };
 
 export default function RootLayout({

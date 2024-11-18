@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { Button } from './ui/button'
+import { Button } from './../ui/button'
 
-type Props = {}
+
 
 const NavRedirect = 
     [
@@ -13,16 +13,16 @@ const NavRedirect =
       {name : 'About', url : '/about'},
     ]
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   return (
     // Main Container
-  <div className="fixed top-2 w-full flex justify-center">
-    <div className="relative w-full max-w-[1200px] h-20 border-[2px] border-green-600 bg-slate-800 rounded-xl flex justify-between">
+  <div className="fixed top-2 w-full flex justify-center z-20">
+    <div className="relative w-full max-w-[1200px] h-20 border-[2px] border-blue-800 backdrop-blur-lg  rounded-full flex justify-between">
       {/* Here is Logo */}
       <Link href="/">
         <div className='flex h-full justify-center gap-2 items-center overflow-hidden cursor-pointer ml-14'>
           <Image src="/apotzalogo.jpeg" alt="logo" width={20} height={20} className='rounded-md '/>
-          <span className='font-jakarta font-extrabold text-xl '>Apotza </span><span className=''>Ui Kit</span>
+          <span className='font-jakarta font-extrabold text-2xl '>Apotza </span><span className='text-slate-200'>UI KIT</span>
         </div>
       </Link>
       {/* Here is seperate container forNavigation and Button Container */}

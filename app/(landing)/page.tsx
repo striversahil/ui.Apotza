@@ -1,5 +1,6 @@
-import Navbar from '@/components/navbar'
+import Navbar from '@/components/Navbar/navbar'
 import React from 'react'
+import HeroBanner from '@/components/HeroSection/index'
 
 type Props = {}
 
@@ -9,121 +10,19 @@ const landingPage = (props: Props) => {
   return (
     <div className=''>
       <Navbar/>
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj <br />
-     akjlkdjlkaj
-     console.log('landing page');
+      <HeroBanner/>
+     <div className='h-screen'>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
+     <div>console.log('landing page');</div>
      
+     console.log('landing page')
+     <button className=' cursor-pointer'>Hello</button>
     </div>
   )
 }
