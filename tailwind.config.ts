@@ -12,6 +12,14 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        jakarta: ["JakartaSans", "sans-serif"],
+      },
+      // fontWeight :{
+      //   light : 300,
+      //   regular : 400,
+      //   bold : 700
+      // }
     },
   },
   plugins: [],

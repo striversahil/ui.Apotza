@@ -4,275 +4,126 @@ import React from 'react'
 type Props = {}
 
 const landingPage = (props: Props) => {
+  console.log('landing page');
+  
   return (
     <div className='h-screen'>
       <Navbar/>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
-      <div className=''>landingPage</div>
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj <br />
+     akjlkdjlkaj
+     console.log('landing page');
+     
     </div>
   )
 }
