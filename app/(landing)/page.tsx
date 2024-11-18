@@ -7,7 +7,7 @@ const landingPage = (props: Props) => {
   console.log('landing page');
   
   return (
-    <div className='h-screen'>
+    <div className=''>
       <Navbar/>
      akjlkdjlkaj <br />
      akjlkdjlkaj <br />
