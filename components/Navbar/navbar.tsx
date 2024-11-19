@@ -17,12 +17,12 @@ const Navbar = () => {
   return (
     // Main Container
   <div className="fixed top-2 w-full flex justify-center z-20">
-    <div className="relative w-full max-w-[1200px] h-20 border-[2px] border-blue-800 backdrop-blur-lg  rounded-full flex justify-between">
+    <div className="relative w-full max-w-[1200px] h-20 border-[2px] border-blue-800 backdrop-blur-lg  rounded-full  flex justify-between">
       {/* Here is Logo */}
       <Link href="/">
         <div className='flex h-full justify-center gap-2 items-center overflow-hidden cursor-pointer ml-14'>
           <Image src="/apotzalogo.jpeg" alt="logo" width={20} height={20} className='rounded-md '/>
-          <span className='font-jakarta font-extrabold text-2xl '>Apotza </span><span className='text-slate-200'>UI KIT</span>
+          <span className='font-jakarta font-extrabold text-2xl '>Apotza </span><span className='text-slate-200 animate-pulse'>UI KIT</span>
         </div>
       </Link>
       {/* Here is seperate container forNavigation and Button Container */}
@@ -42,7 +42,7 @@ const Navbar = () => {
         {/* Here is Button */}
         <div className='mr-4'>
           <Link href="/components">
-            <Button className='bg-blue-600 hover:bg-blue-600/70 rounded-full'>Get Started !</Button>
+            <Button className='bg-blue-600 hover:bg-blue-600/70 rounded-full text-black text-lg font-thin'>Get Started !</Button>
           </Link>
         </div>
       </div>

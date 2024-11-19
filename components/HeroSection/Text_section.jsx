@@ -1,14 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Tech_Giants = [
     {
       company : 'Apple',
-      logo : '/icons/apple.svg'
+      logo : '/icons/apple.svg',
+      'href' : 'https://www.apple.com/'
     },
     {
       company : 'Google',
-      logo : '/icons/google.svg'
+      logo : '/icons/google.svg',
+      'href' : 'https://www.google.com/'
     },
    ]
 
@@ -26,13 +29,15 @@ const Text = ( ) => {
           {Tech_Giants.map((item , index) => {
             return (
               <div key={index}>
-                <div className='flex gap-2 bg-black rounded-lg shadow-md shadow-blue-300 p-2 cursor-pointer'>
-                  <Image src={item.logo} alt={item.company} width={50} height={50}/> 
-                  <div className='flex flex-col'>
-                    <div>{item.company}</div>
-                    <div className='text-gray-400'>Available on {item.company}</div>
+                <Link href={item.href} target='blank'>                
+                  <div className='flex gap-2 bg-black rounded-xl shadow-md shadow-blue-300 p-2 hover:translate-y-[-5px] hover:duration-300 duration-300 cursor-pointer'>
+                    <Image src={item.logo} alt={item.company} width={50} height={50}/> 
+                    <div className='flex flex-col'>
+                      <div>{item.company}</div>
+                      <div className='text-gray-400'>Available on {item.company}</div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             )
           })}

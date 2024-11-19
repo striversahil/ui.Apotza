@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar/navbar'
 import React from 'react'
 import HeroBanner from '@/components/HeroSection/index'
+import Footer from '@/components/Footer/index'
 
 type Props = {}
 
@@ -11,18 +12,10 @@ const landingPage = (props: Props) => {
     <div className=''>
       <Navbar/>
       <HeroBanner/>
-     <div className='h-screen'>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     <div>console.log('landing page');</div>
-     
-     console.log('landing page')
-     <button className=' cursor-pointer'>Hello</button>
+        {/* <div className='h-screen'>console.log('landing page')
+     </div> */}
+     <Footer/>
+
     </div>
   )
 }
