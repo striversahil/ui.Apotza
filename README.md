@@ -1,4 +1,4 @@
-# Turborepo starter
+# Apotza - UI Toolkit
 
 This is an official Apotza - UI Toolkit .
 
