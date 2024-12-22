@@ -1,6 +1,6 @@
 # Turborepo starter
 
-This is an official starter Turborepo.
+This is an official Apotza - UI Toolkit .
 
 ## Using this example
 
