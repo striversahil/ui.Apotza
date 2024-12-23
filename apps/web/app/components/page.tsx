@@ -1,7 +1,7 @@
 'use client'
-import Page from '@/components/content/pages/index.tsx'
-import Sidebar from '@/components/content/Sidebar/index.tsx'
-import Navbar from '@/components/Landing/Navbar/index.tsx'
+import Page from '@/components/content/pages'
+import Sidebar from '@/components/content/Sidebar'
+import Navbar from '@/components/Landing/Navbar'
 import React, { useEffect, useState , use} from 'react'
 
 type Props = {
@@ -29,7 +29,7 @@ export default function CompIdPage({ params }: Props) {
   return (
     <div>
       <Navbar />
-      <div className='flex h-screen bg-gradient-to-tl from-blue-950 to-transparent'>
+      <div className='flex bg-gradient-to-tl from-blue-950 to-transparent'>
           <Sidebar/>
           
           <div className=' flex-grow'>

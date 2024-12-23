@@ -2,11 +2,13 @@
 import Page from '@/components/content/pages'
 import Sidebar from '@/components/content/Sidebar'
 import Navbar from '@/components/Landing/Navbar'
-import React, { useEffect, useState , use} from 'react'
+import React, { useEffect, useState } from 'react'
 
 type Props = {
   params: Promise<{ Comp_Id: string }>; // `params` is a Promise
 };
+
+
 
 export default function CompIdPage({ params }: Props) {
   const [ Comp_Id, setComp_Id ] = useState('')
@@ -22,6 +24,7 @@ export default function CompIdPage({ params }: Props) {
   }, [])
 
 
+
   // const [text, setText] = useState('');
 
 
@@ -33,7 +36,7 @@ export default function CompIdPage({ params }: Props) {
           <Sidebar/>
           
           <div className=' flex-grow'>
-            <Page title={Comp_Id}/> 
+            <Page title={Comp_Id}/>
           </div>
       </div>
     </div>

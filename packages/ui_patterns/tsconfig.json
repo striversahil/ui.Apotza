@@ -7,10 +7,6 @@
         }
       ],
       "baseUrl": ".",
-      "paths": {
-        "@/core/*": ["core/*"],
-        "@/lib/*": ["lib/*"],
-      }
     },
     "include": [
       "**/*.ts",
