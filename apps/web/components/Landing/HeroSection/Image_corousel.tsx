@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Marquee from "react-fast-marquee";
 
 const images = [
@@ -71,7 +72,7 @@ const Image_corousel = () => {
                     <div className='relative flex flex-col justify-center items-center h-80 w-80 bg-black border-2 border-blue-300 rounded-xl overflow-hidden' key={index}>
                       <div className='absolute w-full h-full bg-gradient-to-br from-black to-transparent'></div>
                       <div className=''>
-                          <img className='object-cover' src={item.src} alt={item.alt} />
+                          <img className='object-fill' src={item.src} alt={item.alt} />
                           <div className='absolute bg-transparent backdrop-blur-sm px-3 bottom-0 w-full '>
                               <div className='font-bold text-xl'>{item.role}</div>
                               <div className='text-sm font-light text-gray-300'>{item.alt}</div>
