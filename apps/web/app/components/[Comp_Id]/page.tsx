@@ -30,10 +30,10 @@ export default function CompIdPage({ params }: Props) {
   return (
     <div>
       <Navbar />
-      <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent">
+      <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent gap-10">
         <Sidebar />
 
-        <div className=" flex-grow">
+        <div className="flex-grow mx-10">
           {component ? (
             <Page
               title={component.title}
@@ -43,7 +43,9 @@ export default function CompIdPage({ params }: Props) {
               href={`components/${component.href}`}
             />
           ) : (
-            <div className="h-screen"></div>
+            <div className="h-screen flex items-center justify-center">
+              "404 Not Found"
+            </div>
           )}
         </div>
       </div>
