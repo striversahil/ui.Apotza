@@ -44,8 +44,7 @@ export default function CompIdPage({ params }: Props) {
             />
           ) : (
             <div className="h-screen flex items-center justify-center">
-              {" "}
-              Please Check Components in Sidebar
+              {" <--  "}Please Check Components listed in Sidebar
             </div>
           )}
         </div>
