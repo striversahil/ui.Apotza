@@ -2,13 +2,14 @@ import React from 'react'
 import * as Pattern from '@repo/ui_patterns'
 
 type Props = {
-  title? : string
-  component? : React.ReactNode
-  path? : string
+  title : string
+  description : string
+  src : React.ElementType
+  usage : React.ElementType
+  href : string
 }
 
-const Page = ({title , component , path}: Props) => {
-  console.log(Pattern.Hello);
+const Page = ({title , description , src , usage , href}: Props) => {
   
   return (
     <div className=' h-screen'>
@@ -17,7 +18,7 @@ const Page = ({title , component , path}: Props) => {
           {title}  
         </div>
       </div>
-      <Pattern.Code />
+      <Pattern.Code title={title} description={description} src={src} usage={usage} href={href}/>
     </div>
   )
 }

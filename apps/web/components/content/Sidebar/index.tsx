@@ -17,7 +17,7 @@ const Sidebar = ({}: Props) => {
         <span className='bg-slate-400 rounded-full'>✨</span></div>
       <div className='flex flex-col gap-5 my-6'>
         {Json.data.map((item , index) =>(
-          <Navigation_button key={index} index={index} name={Object.keys(item)[0]}  />
+          <Navigation_button key={index} name={item.title} path={item.href} />
         ))}
       </div>
       
