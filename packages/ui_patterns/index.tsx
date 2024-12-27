@@ -1,3 +1,3 @@
 // Barrel file
 
-export * from "./Layout";
+export { default as Code_Layout } from "./Layout";

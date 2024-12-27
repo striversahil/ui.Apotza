@@ -1,9 +1,9 @@
 "use client";
-import Page from "@/components/content/pages";
 import Sidebar from "@/components/content/Sidebar";
 import Navbar from "@/components/Landing/Navbar";
 import React, { useEffect, useState } from "react";
 import * as Json from "@repo/common";
+import { Code_Layout } from "@repo/ui_patterns";
 
 type Props = {
   params: Promise<{ Comp_Id: string }>; // `params` is a Promise
@@ -32,17 +32,17 @@ export default function CompIdPage({ params }: Props) {
   return (
     <div>
       <Navbar />
-      <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent gap-10">
+      <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent">
         <Sidebar />
 
         <div className="flex-grow mx-10">
           {component ? (
-            <Page
+            <Code_Layout
               title={component.title}
               description={component.description}
-              src={component.src}
-              usage={component.usage}
-              href={`components/${component.href}`}
+              Usage={component.usage}
+              code={component.code}
+              prop={component.prop}
             />
           ) : (
             <div className="h-screen flex items-center justify-center">
