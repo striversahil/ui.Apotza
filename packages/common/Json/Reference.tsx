@@ -1,12 +1,12 @@
 import {
   Title as TemplateTitle,
   href as TemplateHref,
-} from "@repo/components/core/Sidebar";
+} from "@repo/components/core/__template";
 
 import {
-  Title as SidebarTitle,
-  href as SidebarHref,
-} from "@repo/components/core/__template";
+  Title as TableTitle,
+  href as TableHref,
+} from "@repo/components/core/Table";
 
 export const Reference = [
   {
@@ -14,7 +14,7 @@ export const Reference = [
     href: TemplateHref,
   },
   {
-    title: SidebarTitle,
-    href: SidebarHref,
+    title: TableTitle,
+    href: TableHref,
   },
 ];
