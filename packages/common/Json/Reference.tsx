@@ -1,20 +1,20 @@
-import * as Slug from "@repo/components";
+import {
+  Title as TemplateTitle,
+  href as TemplateHref,
+} from "@repo/components/core/Sidebar";
 
-import * as Template from "@repo/components/core/__template";
-
-import * as Sidebar from "@repo/components/core/Sidebar";
+import {
+  Title as SidebarTitle,
+  href as SidebarHref,
+} from "@repo/components/core/__template";
 
 export const Reference = [
   {
-    title: Template.Title,
-    href: Template.href,
+    title: TemplateTitle,
+    href: TemplateHref,
   },
   {
-    title: Template.Title,
-    href: Template.href,
-  },
-  {
-    title: Sidebar.Title,
-    href: Sidebar.href,
+    title: SidebarTitle,
+    href: SidebarHref,
   },
 ];

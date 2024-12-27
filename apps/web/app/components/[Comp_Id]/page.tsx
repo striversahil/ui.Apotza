@@ -19,6 +19,8 @@ export default function CompIdPage({ params }: Props) {
     setComp_Id(Comp_Id);
     // setcomponent(Json.data.find((comp) => comp.href === Comp_Id));
   }
+
+  // Getting Component data Through Reference
   const component = Json.data[Comp_Id] || null;
   useEffect(() => {
     getProp();
