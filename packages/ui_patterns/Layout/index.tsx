@@ -1,29 +1,24 @@
 import React from "react";
-import Description from "./Description";
+import Title_Description from "./title_description";
+import Hero from "./Hero";
 
 type Props = {
   title: string;
   description: string;
-  src: React.ElementType;
-  usage: React.ElementType;
-  href: string;
+  Usage: React.ElementType;
+  code: string;
+  prop: Object;
 };
 
-export const Code = ({
-  title,
-  description,
-  src: Src,
-  usage: Usage,
-  href,
-}: Props) => {
+const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {
   return (
-    <div className="h-full flex flex-col">
-      <Description prop={description} />
-      <Src />
-      <Usage />
-      {href}
+    <div className=" h-screen ">
+      <Title_Description title={title} description={description} />
+      <Hero Usage={Usage} />
+
+      {code}
     </div>
   );
 };
 
-export const Hello = "dick";
+export default Code_Layout;

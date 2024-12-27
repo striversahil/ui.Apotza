@@ -10,8 +10,8 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/lib/*": ["lib/*"],
-      "@/constants/*": ["constants/*"],
-    } 
+      "@/constants/*": ["constants/*"]
+    }
   },
   "include": [
     "**/*.ts",
@@ -20,7 +20,5 @@
     "next.config.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
-export const Title = `Sidebar`;
+export const Description = `This is a Beatiful Sidebar.`;
 
-export const href = `sidebar`;
-
-export const Description = `This is a description for a Beautiful Sidebar.`;
+export const Props = {
+  prop: "prop",
+};

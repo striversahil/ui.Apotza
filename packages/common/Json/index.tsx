@@ -4,37 +4,27 @@ import * as Template from "@repo/components/core/__template";
 
 import * as Sidebar from "@repo/components/core/Sidebar";
 
-export const data = [
-  {
-    title: Template.Title,
-    description: Template.Description,
-    src: Template.Index,
-    usage: Template.Usage,
-    src_code: Template.code,
-    href: Template.href,
-  },
-  {
+interface Props {
+  title: string;
+  description: string;
+  usage: React.ElementType;
+  code: string;
+  prop: Object;
+}
+
+export const data: { [key: string]: Props } = {
+  sidebar: {
     title: Sidebar.Title,
     description: Sidebar.Description,
-    src: Sidebar.Index,
     usage: Sidebar.Usage,
-    src_code: Sidebar.code,
-    href: Sidebar.href,
+    code: Sidebar.code,
+    prop: Sidebar.Props,
   },
-  {
+  template: {
     title: Template.Title,
     description: Template.Description,
-    src: Template.Index,
     usage: Template.Usage,
-    src_code: Template.code,
-    href: Template.href,
+    code: Template.code,
+    prop: Template.Props,
   },
-  {
-    title: Sidebar.Title,
-    description: Sidebar.Description,
-    src: Sidebar.Index,
-    usage: Sidebar.Usage,
-    src_code: Sidebar.code,
-    href: Sidebar.href,
-  },
-];
+};

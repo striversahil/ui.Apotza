@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export const code = `
 "use client";
@@ -17,6 +17,4 @@ import { cn } from "@/lib/utils";
 
 
 
-`
-
-
+`;
