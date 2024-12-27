@@ -2,7 +2,7 @@ import * as Slug from "@repo/components";
 
 import * as Template from "@repo/components/core/__template";
 
-import * as Sidebar from "@repo/components/core/Sidebar";
+import * as Table from "@repo/components/core/Table";
 
 interface Props {
   title: string;
@@ -13,12 +13,12 @@ interface Props {
 }
 
 export const data: { [key: string]: Props } = {
-  sidebar: {
-    title: Sidebar.Title,
-    description: Sidebar.Description,
-    usage: Sidebar.Usage,
-    code: Sidebar.code,
-    prop: Sidebar.Props,
+  table: {
+    title: Table.Title,
+    description: Table.Description,
+    usage: Table.Usage,
+    code: Table.code,
+    prop: Table.Props,
   },
   template: {
     title: Template.Title,

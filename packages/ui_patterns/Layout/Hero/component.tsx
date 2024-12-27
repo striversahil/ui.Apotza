@@ -6,7 +6,7 @@ type Props = {
 
 const Component = ({ Usage }: Props) => {
   return (
-    <div className=" w-full h-full">
+    <div className=" w-full h-full ">
       <Usage />
     </div>
   );

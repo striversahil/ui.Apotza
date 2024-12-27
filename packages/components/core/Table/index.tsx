@@ -2,9 +2,9 @@
 export * from "./code_text";
 export * from "./description";
 export * from "./src";
-export * from "./usage";
+export * from "./Usage";
 
 // Exports for Reference
-export const Title = `Sidebar`;
+export const Title = `Table`;
 
-export const href = `sidebar`;
+export const href = `table`;
