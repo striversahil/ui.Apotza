@@ -11,15 +11,15 @@ type Props = {
 
 export default function CompIdPage({ params }: Props) {
   const [Comp_Id, setComp_Id] = useState("");
-  const [component, setcomponent] = useState(undefined);
+  // const [component, setcomponent] = useState(undefined);
 
   async function getProp() {
     const unwrappedParams = await params;
     const { Comp_Id } = unwrappedParams;
     setComp_Id(Comp_Id);
-    setcomponent(Json.data.find((comp) => comp.href === Comp_Id));
+    // setcomponent(Json.data.find((comp) => comp.href === Comp_Id));
   }
-
+  const component = Json.data[Comp_Id] || null;
   useEffect(() => {
     getProp();
     // console.log(component)

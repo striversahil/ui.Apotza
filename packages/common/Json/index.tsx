@@ -4,16 +4,8 @@ import * as Template from "@repo/components/core/__template";
 
 import * as Sidebar from "@repo/components/core/Sidebar";
 
-export const data = [
-  {
-    title: Template.Title,
-    description: Template.Description,
-    src: Template.Index,
-    usage: Template.Usage,
-    src_code: Template.code,
-    href: Template.href,
-  },
-  {
+export const data = {
+  sidebar: {
     title: Sidebar.Title,
     description: Sidebar.Description,
     src: Sidebar.Index,
@@ -21,7 +13,7 @@ export const data = [
     src_code: Sidebar.code,
     href: Sidebar.href,
   },
-  {
+  template: {
     title: Template.Title,
     description: Template.Description,
     src: Template.Index,
@@ -29,12 +21,4 @@ export const data = [
     src_code: Template.code,
     href: Template.href,
   },
-  {
-    title: Sidebar.Title,
-    description: Sidebar.Description,
-    src: Sidebar.Index,
-    usage: Sidebar.Usage,
-    src_code: Sidebar.code,
-    href: Sidebar.href,
-  },
-];
+};

@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import * as Json from "@repo/common";
+import { Reference } from "@repo/common";
 import Navigation_button from "./Button";
 
 type Props = {};
@@ -15,7 +15,7 @@ const Sidebar = ({}: Props) => {
         <span className="bg-slate-400 rounded-full">✨</span>
       </div>
       <div className="flex flex-col gap-5 my-6">
-        {Json.data.map((item, index) => (
+        {Reference.map((item, index) => (
           <Navigation_button key={index} name={item.title} path={item.href} />
         ))}
       </div>
