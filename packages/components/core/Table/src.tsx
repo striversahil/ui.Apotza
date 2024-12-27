@@ -24,32 +24,42 @@ export const Table: React.FC<TableProp> = ({
   stickyColumns = [],
   styleRows = [],
 }: TableProp) => {
-  const headers = columns.length
+  const headers = columns.length //Taking First Row if Column not Provided
     ? columns.map((col) => (typeof col === "string" ? col : col.head))
     : data && data.length
       ? Object.keys(data[0])
       : [];
 
   if (columns.length) {
+    // Check if all columns are present in the data
     data.forEach((row, index) => {
       const rowKeys = Object.keys(row);
       const InvalidKeys = rowKeys.filter((data) => !headers.includes(data));
       if (InvalidKeys.length > 0) {
         throw new Error(`
-          Data Not Found at ${index} and got Invalid Keys ${InvalidKeys.join(",")}`);
+          \n Data Not Found at ${index} and got Invalid Keys ${InvalidKeys.join(",")} \n
+          Allowed Keys are ${headers.join(",")} `);
       }
     });
   }
 
   if (!data && !columns) {
     return (
-      <div>
+      <div className="text-center w-full">
         {" "}
         Data Not Found ! <br />
         Please Provide the Data
       </div>
     );
   }
+
+  const formatCellValue = (cell: any) => {
+    if (React.isValidElement(cell)) return cell;
+    if (cell === undefined || cell === null) return "-";
+    if (typeof cell === "boolean") return cell.toString();
+    if (typeof cell == "object") return JSON.stringify(cell);
+    return cell;
+  };
 
   const rows = data.map((row) => {
     return headers.map((col) => {
@@ -79,7 +89,7 @@ export const Table: React.FC<TableProp> = ({
                 key={index}
                 className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent"
               >
-                {row[column]}
+                {formatCellValue(row[column])}
               </td>
             ))}
           </tr>

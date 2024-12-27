@@ -8,7 +8,7 @@ type Props = {
 const Code = (props: Props) => {
   return (
     <div className="w-full flex justify-center">
-      <div className="w-1/2 rounded-3xl">
+      <div className="w-1/2 max-h-[500px] rounded-3xl overflow-y-scroll">
         <CodeBlock
           text={props.code}
           showLineNumbers={true}
