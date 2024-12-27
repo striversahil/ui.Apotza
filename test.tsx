@@ -28,10 +28,11 @@ const DevTable = ({
   const headers = columns.length
     ? columns.map((col) => (typeof col === "string" ? col : col.head))
     : data.length
-      ? Object.keys(data[0])
+      ? Object.keys(data[0]) //Taking First Row if Column not Provided
       : [];
 
   if (columns.length) {
+    // Check if all columns are present in the data
     data.forEach((row, index) => {
       const rowKeys = Object.keys(row);
       const invalidKeys = rowKeys.filter((key) => !headers.includes(key));
@@ -46,6 +47,7 @@ const DevTable = ({
   }
 
   if (!data.length && !columns.length) {
+    // No data or columns provided
     return (
       <div className="text-center p-4 text-[#06b6d4]/80">No data available</div>
     );

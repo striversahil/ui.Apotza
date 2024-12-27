@@ -20,9 +20,9 @@ type TableProp = {
 
 export const Table: React.FC<TableProp> = ({
   data,
-  columns,
-  stickyColumns,
-  styleRows,
+  columns = [],
+  stickyColumns = [],
+  styleRows = [],
 }: TableProp) => {
   const headers = columns.length
     ? columns.map((col) => (typeof col === "string" ? col : col.head))
@@ -31,6 +31,24 @@ export const Table: React.FC<TableProp> = ({
       : [];
 
   if (columns.length) {
+    data.forEach((row, index) => {
+      const rowKeys = Object.keys(row);
+      const InvalidKeys = rowKeys.filter((data) => !headers.includes(data));
+      if (InvalidKeys.length > 0) {
+        throw new Error(`
+          Data Not Found at ${index} and got Invalid Keys ${InvalidKeys.join(",")}`);
+      }
+    });
+  }
+
+  if (!data && !columns) {
+    return (
+      <div>
+        {" "}
+        Data Not Found ! <br />
+        Please Provide the Data
+      </div>
+    );
   }
 
   const rows = data.map((row) => {
