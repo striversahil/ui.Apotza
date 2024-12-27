@@ -2,7 +2,7 @@
 import Sidebar from "@/components/content/Sidebar";
 import Navbar from "@/components/Landing/Navbar";
 import React, { useEffect, useState } from "react";
-import * as Json from "@repo/common";
+import { data } from "@repo/common";
 import { Code_Layout } from "@repo/ui_patterns";
 
 type Props = {
@@ -17,11 +17,10 @@ export default function CompIdPage({ params }: Props) {
     const unwrappedParams = await params;
     const { Comp_Id } = unwrappedParams;
     setComp_Id(Comp_Id);
-    // setcomponent(Json.data.find((comp) => comp.href === Comp_Id));
   }
 
   // Getting Component data Through Reference
-  const component = Json.data[Comp_Id] || null;
+  const component = data[Comp_Id] || null;
   useEffect(() => {
     getProp();
     // console.log(component)
@@ -35,7 +34,7 @@ export default function CompIdPage({ params }: Props) {
       <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent">
         <Sidebar />
 
-        <div className="flex-grow mx-10">
+        <div className="flex-grow mt-[100px] mx-10">
           {component ? (
             <Code_Layout
               title={component.title}

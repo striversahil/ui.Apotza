@@ -4,7 +4,15 @@ import * as Template from "@repo/components/core/__template";
 
 import * as Sidebar from "@repo/components/core/Sidebar";
 
-export const data = {
+interface Props {
+  title: string;
+  description: string;
+  usage: React.ElementType;
+  code: string;
+  prop: Object;
+}
+
+export const data: { [key: string]: Props } = {
   sidebar: {
     title: Sidebar.Title,
     description: Sidebar.Description,

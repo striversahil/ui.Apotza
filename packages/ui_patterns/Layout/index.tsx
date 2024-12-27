@@ -1,5 +1,6 @@
 import React from "react";
-import Description from "./Description";
+import Title_Description from "./title_description";
+import Hero from "./Hero";
 
 type Props = {
   title: string;
@@ -11,12 +12,10 @@ type Props = {
 
 const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {
   return (
-    <div className=" h-screen">
-      <div className="mt-[100px] w-full h-[75px] bg-blue-400 text-bold text-2xl flex justify-center items-center rounded-xl">
-        <div className="text-3xl font-bold uppercase">{title}</div>
-      </div>
-      <Description prop={description} />
-      <Usage />
+    <div className=" h-screen ">
+      <Title_Description title={title} description={description} />
+      <Hero Usage={Usage} />
+
       {code}
     </div>
   );
