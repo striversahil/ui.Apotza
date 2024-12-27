@@ -1,5 +1,11 @@
 import React from "react";
 
+interface Column {
+  head: string;
+  element?: React.ReactNode;
+  width?: string;
+}
+
 interface StyleProp {
   position: number;
   style: string;
@@ -7,7 +13,7 @@ interface StyleProp {
 
 type TableProp = {
   data: Record<string, React.ReactNode>[];
-  columns: string[];
+  columns: (string | Column)[];
   stickyColumns?: string[];
   styleRows?: StyleProp[];
 };
@@ -18,10 +24,17 @@ export const Table: React.FC<TableProp> = ({
   stickyColumns,
   styleRows,
 }: TableProp) => {
-  const header = columns.length ? columns : data[0] ? data[0] : [];
+  const headers = columns.length
+    ? columns.map((col) => (typeof col === "string" ? col : col.head))
+    : data && data.length
+      ? Object.keys(data[0])
+      : [];
+
+  if (columns.length) {
+  }
 
   const rows = data.map((row) => {
-    return columns.map((col) => {
+    return headers.map((col) => {
       return row[col];
     });
   });
@@ -30,7 +43,7 @@ export const Table: React.FC<TableProp> = ({
     <table className="w-full">
       <thead>
         <tr className="sticky top-0 uppercase">
-          {columns.map((column, index) => (
+          {headers.map((column, index) => (
             <th
               key={index}
               className="box-content border-[2px] p-2 border-blue-300  "
@@ -43,7 +56,7 @@ export const Table: React.FC<TableProp> = ({
       <tbody className="overflow-y-scroll">
         {data.map((row, index) => (
           <tr key={index}>
-            {columns.map((column, index) => (
+            {headers.map((column, index) => (
               <td
                 key={index}
                 className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent"
