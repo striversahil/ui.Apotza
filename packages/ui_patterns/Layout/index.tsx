@@ -12,7 +12,7 @@ type Props = {
 
 const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {
   return (
-    <div className=" h-screen ">
+    <div className=" h-screen bg-slate-500">
       <Title_Description title={title} description={description} />
       <Hero Usage={Usage} />
 
