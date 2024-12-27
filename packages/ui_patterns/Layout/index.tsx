@@ -7,7 +7,7 @@ type Props = {
   description: string;
   Usage: React.ElementType;
   code: string;
-  prop: Object;
+  prop: Array<Object>;
 };
 
 const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {
@@ -15,8 +15,6 @@ const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {
     <div className=" h-screen">
       <Title_Description title={title} description={description} />
       <Hero Usage={Usage} Code={code} />
-
-      {code}
     </div>
   );
 };
