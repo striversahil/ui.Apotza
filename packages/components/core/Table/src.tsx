@@ -27,19 +27,29 @@ export const Table: React.FC<TableProp> = ({
   });
 
   return (
-    <table>
+    <table className="w-full">
       <thead>
-        <tr>
+        <tr className="sticky top-0 uppercase">
           {columns.map((column, index) => (
-            <th key={index}>{column}</th>
+            <th
+              key={index}
+              className="box-content border-[2px] p-2 border-blue-300  "
+            >
+              {column}
+            </th>
           ))}
         </tr>
       </thead>
-      <tbody>
+      <tbody className="overflow-y-scroll">
         {data.map((row, index) => (
           <tr key={index}>
             {columns.map((column, index) => (
-              <td key={index}>{row[column]}</td>
+              <td
+                key={index}
+                className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent"
+              >
+                {row[column]}
+              </td>
             ))}
           </tr>
         ))}
