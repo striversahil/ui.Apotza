@@ -23,9 +23,15 @@ export const Index = ({
   return (
     <div className="w-1/3 h-20 rounded-full flex justify-around bg-blue-400">
       <button onClick={() => Click(currPage - 1)}>Left</button>
-      <div className="text-center flex align-middle h-full">{currPage - 1}</div>
-      <div className="text-center flex align-middle h-full">{currPage}</div>
-      <div className="text-center flex align-middle h-full">{currPage + 1}</div>
+      <div></div>
+      {[-1, 0, 1].map((add, idx) => (
+        <button
+          onClick={() => Click(currPage + add)}
+          className="h-full w-5 rounded-full bg-blue-300"
+        >
+          {currPage + add}
+        </button>
+      ))}
       <button onClick={() => Click(currPage + 1)}>Right</button>
     </div>
   );
