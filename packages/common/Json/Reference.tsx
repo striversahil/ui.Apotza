@@ -18,10 +18,6 @@ import {
 
 export const Reference = [
   {
-    title: TemplateTitle,
-    href: TemplateHref,
-  },
-  {
     title: TableTitle,
     href: TableHref,
   },
@@ -32,5 +28,9 @@ export const Reference = [
   {
     title: ToastTitle,
     href: ToastHref,
+  },
+  {
+    title: TemplateTitle,
+    href: TemplateHref,
   },
 ];

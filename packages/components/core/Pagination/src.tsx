@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 type Props = {
   totalPages: number;
@@ -33,12 +34,19 @@ export const Index = ({
         onClick={() => {
           Click(currPage + prop);
         }}
-        className="p-2 rounded-full bg-blue-500 mx-2 hover:bg-blue-700 "
+        className="p-2 rounded-full  mx-2 hover:bg-blue-300/55 "
       >
         {slug}
       </button>
     </div>
   );
+
+  const ClassName = (page: number): string => {
+    if (page === currPage) {
+      return "text-white bg-blue-300 text-bold";
+    }
+    return "text-gray-400";
+  };
 
   return (
     <div className="w-1/3 h-20 rounded-full flex justify-evenly bg-gradient-to-l from-blue-900 to-transparent border border-yellow-500">
@@ -47,7 +55,10 @@ export const Index = ({
         {[-1, 0, 1].map((add, idx) => (
           <button
             onClick={() => Click(currPage + add)}
-            className="h-fit w-10  p-2 rounded-full text-blue-200 hover:bg-blue-300/55"
+            className={cn(
+              "p-2 rounded-full  px-4 hover:bg-blue-300/55 ",
+              ClassName(currPage + add)
+            )}
             key={idx}
           >
             {currPage + add}

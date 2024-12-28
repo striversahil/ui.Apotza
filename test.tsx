@@ -167,6 +167,7 @@ interface ToastFunction {
 
 export const toast: ToastFunction = Object.assign(
   (message: string) => showToast(message, ToastType.DEFAULT),
+  // Methods
   {
     success: (message: string) => showToast(message, ToastType.SUCCESS),
     error: (message: string) => showToast(message, ToastType.ERROR),

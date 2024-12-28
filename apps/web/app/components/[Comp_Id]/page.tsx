@@ -1,6 +1,5 @@
 "use client";
 import Sidebar from "@/components/content/Sidebar";
-import Navbar from "@/components/Landing/Navbar";
 import React, { useEffect, useState } from "react";
 import { data } from "@repo/common";
 import { Code_Layout } from "@repo/ui_patterns";
@@ -30,7 +29,6 @@ export default function CompIdPage({ params }: Props) {
 
   return (
     <div>
-      <Navbar />
       <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent">
         <Sidebar />
 
