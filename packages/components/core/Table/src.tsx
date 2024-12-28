@@ -87,7 +87,7 @@ export const Table: React.FC<TableProp> = ({
             {headers.map((column, index) => (
               <td
                 key={index}
-                className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent"
+                className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200"
               >
                 {formatCellValue(row[column])}
               </td>

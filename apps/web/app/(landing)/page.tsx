@@ -1,4 +1,4 @@
-import Navbar from "@/components/Landing/Navbar";
+import { Navbar } from "@repo/ui_patterns/Navbar";
 import React from "react";
 import HeroBanner from "@/components/Landing/HeroSection";
 import Footer from "@/components/Landing/Footer";
@@ -11,7 +11,6 @@ const landingPage = (props: Props) => {
 
   return (
     <div className="">
-      <Navbar />
       <HeroBanner />
       {/* <div className='h-screen'>console.log('landing page')
      </div> */}

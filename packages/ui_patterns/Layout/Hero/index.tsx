@@ -15,7 +15,7 @@ const Hero = (props: Props) => {
     <div className="min-h-[250px] ">
       <button
         onClick={() => setstate(!first)}
-        className="text-white bg-slate-500 px-4 py-2 w-fit h-fit rounded-full hover:bg-slate-600"
+        className="flex justify-end text-white  bg-slate-500 px-4 py-2 w-fit h-fit rounded-full hover:bg-slate-600"
       >
         Toggle
       </button>
