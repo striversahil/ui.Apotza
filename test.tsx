@@ -1,166 +1,142 @@
 //TSX code
-import React from "react";
+"use client";
+import { useState } from "react";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
-interface Column {
-  head: string;
-  element?: React.ReactNode;
-  width?: string;
+interface PaginationProps {
+  totalPages: number;
+  initialPage?: number;
+  onPageChange?: (page: number) => void;
+  maxVisiblePages?: number;
 }
 
-interface StyleRow {
-  position: number;
-  style: string;
-}
+const DevPagination = ({
+  totalPages,
+  initialPage = 1,
+  onPageChange = () => {},
+  maxVisiblePages = 7,
+}: PaginationProps) => {
+  const [currentPage, setCurrentPage] = useState(initialPage);
 
-interface DevTableProps {
-  data: Record<string, React.ReactNode>[];
-  columns?: (string | Column)[];
-  stickyColumns?: string[];
-  styleRows?: StyleRow[];
-}
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    onPageChange(page);
+  };
 
-const DevTable = ({
-  data,
-  columns = [],
-  stickyColumns = [],
-  styleRows = [],
-}: DevTableProps) => {
-  const headers = columns.length
-    ? columns.map((col) => (typeof col === "string" ? col : col.head))
-    : data.length
-      ? Object.keys(data[0]) //Taking First Row if Column not Provided
-      : [];
+  const renderPageNumbers = () => {
+    // Calculate start and end pages
+    const pages = [];
+    let startPage = 1;
+    let endPage = totalPages;
 
-  if (columns.length) {
-    // Check if all columns are present in the data
-    data.forEach((row, index) => {
-      const rowKeys = Object.keys(row);
-      const invalidKeys = rowKeys.filter((key) => !headers.includes(key));
-      if (invalidKeys.length > 0) {
-        throw new Error(
-          `Data at index ${index} contains invalid columns: ${invalidKeys.join(
-            ", "
-          )}. Allowed columns are: ${headers.join(", ")}.`
+    if (totalPages > maxVisiblePages) {
+      const middlePoint = Math.floor(maxVisiblePages / 2);
+
+      if (currentPage <= middlePoint) {
+        endPage = maxVisiblePages - 2;
+      } else if (currentPage >= totalPages - middlePoint) {
+        startPage = totalPages - maxVisiblePages + 3;
+      } else {
+        startPage = currentPage - middlePoint + 2;
+        endPage = currentPage + middlePoint - 2;
+      }
+    }
+
+    // Add first page
+    if (startPage > 1) {
+      pages.push(
+        <button
+          key={1}
+          onClick={() => handlePageChange(1)}
+          className={`p-2 rounded-full ${
+            currentPage === 1
+              ? "bg-[#06b6d4] !text-white"
+              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
+          }`}
+        >
+          1
+        </button>
+      );
+      if (startPage > 2) {
+        // Add ellipsis
+        pages.push(
+          <span key="start-ellipsis" className="px-2 py-1  text-[#06b6d4]">
+            ...
+          </span>
         );
       }
-    });
-  }
+    }
 
-  if (!data.length && !columns.length) {
-    // No data or columns provided
-    return (
-      <div className="text-center p-4 text-[#06b6d4]/80">No data available</div>
-    );
-  }
+    // Add middle pages
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`p-2 rounded-full ${
+            currentPage === i
+              ? "bg-[#06b6d4] !text-white"
+              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
 
-  const currentData = data;
+    // Add last page
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        pages.push(
+          <span key="end-ellipsis" className="px-2 py-1  text-[#06b6d4]">
+            ...
+          </span>
+        );
+      }
+      pages.push(
+        <button
+          key={totalPages}
+          onClick={() => handlePageChange(totalPages)}
+          className={`p-2 rounded-full ${
+            currentPage === totalPages
+              ? "bg-[#06b6d4] !text-white"
+              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
+          }`}
+        >
+          {totalPages}
+        </button>
+      );
+    }
 
-  const formatCellValue = (value: any) => {
-    if (React.isValidElement(value)) return value;
-    if (value === null || value === undefined) return "-";
-    if (typeof value === "boolean") return value.toString();
-    if (typeof value === "object") return JSON.stringify(value);
-    return value;
+    return pages;
   };
-
-  const getRowStyle = (rowIndex: number) => {
-    const rowStyle = styleRows.find((style) => style.position === rowIndex);
-    return rowStyle ? rowStyle.style : "";
-  };
-
-  const getColumnWidth = (col: string | Column) => {
-    if (typeof col === "string") return "auto";
-    return col.width || "auto";
-  };
-
-  const headerItems = columns.length ? columns : headers;
 
   return (
-    <div className="w-full max-h-screen overflow-x-auto border rounded-lg border-[#06b6d4]/50">
-      <table className="w-full table-auto divide-y divide-[#06b6d4]/30">
-        <thead className="bg-[#06b6d4] text-white">
-          <tr>
-            {headerItems.map((col: string | Column, index) => {
-              const header = typeof col === "string" ? col : col.head;
-              const headerElement =
-                typeof col === "string" ? header : col.element || header;
-              const width = getColumnWidth(col);
-              const isSticky = stickyColumns.includes(header);
-              const isLastSticky =
-                isSticky && headers.indexOf(header) === headers.length - 1;
-
-              return (
-                <th
-                  key={header}
-                  className={`
-                    px-4 py-2 text-left text-xs font-medium uppercase tracking-wider whitespace-nowrap
-                    ${isSticky ? "sticky z-10 bg-[#06b6d4]" : ""}
-                    ${isLastSticky ? "right-0" : isSticky ? "left-0" : ""}
-                  `}
-                  style={{
-                    width: width,
-                    maxWidth: width === "auto" ? "none" : width,
-                  }}
-                >
-                  <div className="flex items-center gap-1">
-                    <span className="truncate">{headerElement}</span>
-                  </div>
-                </th>
-              );
-            })}
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-[#06b6d4]/30">
-          {data.length ? (
-            currentData.map((row, rowIndex) => (
-              <tr
-                key={rowIndex}
-                className={`hover:bg-[#F5F8FF]/50 hover:dark:bg-[#1f2937]/50 ${getRowStyle(
-                  rowIndex
-                )}`}
-              >
-                {headers.map((header, colIndex) => {
-                  const col = headerItems[colIndex];
-                  const width = getColumnWidth(col);
-                  const isSticky = stickyColumns.includes(header);
-                  const isLastSticky =
-                    isSticky && headers.indexOf(header) === headers.length - 1;
-
-                  return (
-                    <td
-                      key={`${rowIndex}-${header}`}
-                      className={`
-                        px-4 py-2 text-sm whitespace-nowrap
-                        ${isSticky ? "sticky z-10 bg-[#F5F8FF] dark:bg-[#1f2937]" : ""}
-                        ${isLastSticky ? "right-0" : isSticky ? "left-0" : ""}
-                      `}
-                      style={{
-                        width: width,
-                        maxWidth: width === "auto" ? "none" : width,
-                      }}
-                    >
-                      <div className="overflow-hidden overflow-ellipsis">
-                        {formatCellValue(row[header])}
-                      </div>
-                    </td>
-                  );
-                })}
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td
-                colSpan={headers.length}
-                className="px-4 py-2 text-center text-[#06b6d4]/80"
-              >
-                No data available
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+    <div className="flex *:!select-none items-center gap-1 bg-[#F5F8FF] dark:bg-[#1f2937] rounded-full p-1 border border-[#06b6d4]/10">
+      <button
+        onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
+        disabled={currentPage === 1}
+        className="p-2 text-2xl rounded-full text-[#06b6d4] hover:bg-[#06b6d4]/50 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <BiChevronLeft />
+      </button>
+      <div
+        className="md:grid flex flex-wrap gap-2 *:aspect-square"
+        style={{
+          gridTemplateColumns: `repeat(${maxVisiblePages}, minmax(0, 1fr))`,
+        }}
+      >
+        {renderPageNumbers()}
+      </div>
+      <button
+        onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
+        disabled={currentPage === totalPages}
+        className="p-2 text-2xl rounded-full text-[#06b6d4] hover:bg-[#06b6d4]/50 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        <BiChevronRight />
+      </button>
     </div>
   );
 };
 
-export default DevTable;
+export default DevPagination;

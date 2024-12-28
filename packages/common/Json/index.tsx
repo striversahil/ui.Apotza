@@ -3,6 +3,7 @@ import * as Slug from "@repo/components";
 import * as Template from "@repo/components/core/__template";
 
 import * as Table from "@repo/components/core/Table";
+import * as Pagination from "@repo/components/core/Pagination";
 
 interface Props {
   title: string;
@@ -26,5 +27,12 @@ export const data: { [key: string]: Props } = {
     usage: Template.Usage,
     code: Template.code,
     prop: Template.Props,
+  },
+  pagination: {
+    title: Pagination.Title,
+    description: Pagination.Description,
+    usage: Pagination.Usage,
+    code: Pagination.code,
+    prop: Pagination.Props,
   },
 };

@@ -7,6 +7,10 @@ import {
   Title as TableTitle,
   href as TableHref,
 } from "@repo/components/core/Table";
+import {
+  Title as PaginationTitle,
+  href as PaginationHref,
+} from "@repo/components/core/Pagination";
 
 export const Reference = [
   {
@@ -16,5 +20,9 @@ export const Reference = [
   {
     title: TableTitle,
     href: TableHref,
+  },
+  {
+    title: PaginationTitle,
+    href: PaginationHref,
   },
 ];
