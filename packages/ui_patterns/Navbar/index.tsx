@@ -4,12 +4,6 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import { Button } from "../../../apps/web/components/ui/button";
 
-type Props = {
-  main_container?: string;
-  Navigation_container?: string;
-  Button_Container?: string;
-};
-
 const NavRedirect = [
   { name: "Home", url: "/home" },
   { name: "Components", url: "/components" },
@@ -17,11 +11,7 @@ const NavRedirect = [
   { name: "About", url: "/about" },
 ];
 
-export const Navbar = ({
-  main_container,
-  Navigation_container,
-  Button_Container,
-}: Props) => {
+export const Navbar = ({}) => {
   // Todo (sahil): add scroll event
   // const [open, setOpen] = React.useState(true);
   // const [lastscrollY, setlastscrollY] = React.useState(100);
@@ -44,12 +34,8 @@ export const Navbar = ({
   return (
     // Main Container
     <>
-      <nav
-        className={
-          `fixed top-2 w-full flex justify-center z-20 ` + main_container
-        }
-      >
-        <div className="relative flex justify-between w-full hover:scale-x-105 duration-200 max-w-[1200px] h-20 border-[2px] border-blue-800 backdrop-blur-lg  rounded-full  ">
+      <nav className={`fixed top-2 w-full flex justify-center z-20 `}>
+        <div className="relative flex justify-between w-full hover:translate-y-2 duration-200 max-w-[1200px] h-20 border-[2px] border-blue-800 backdrop-blur-lg  rounded-full  ">
           {/* Here is Logo */}
           <Link href="/">
             <div className="flex h-full justify-center gap-2 items-center overflow-hidden cursor-pointer ml-14">
@@ -70,12 +56,7 @@ export const Navbar = ({
           <div className="items-center justify-center gap-5 hidden md:flex">
             {/* Here is Navigation */}
             <div>
-              <div
-                className={
-                  `flex gap-4 justify-around items-center ` +
-                  Navigation_container
-                }
-              >
+              <div className={`flex gap-4 justify-around items-center `}>
                 {NavRedirect.map((item, index) => (
                   <Link href={item.url} key={index}>
                     <div className="font-jakarta font-medium text-lg text-white hover:text-green-600 cursor-pointer">
@@ -86,10 +67,10 @@ export const Navbar = ({
               </div>
             </div>
             {/* Here is Button */}
-            <div className={`mr-4 ` + Button_Container}>
+            <div className="mr-4">
               <Link href="/components/button">
-                <Button className="bg-blue-600 hover:bg-blue-600/70 rounded-full text-black text-lg font-thin">
-                  Get Started !
+                <Button className="bg-blue-600 hover:bg-blue-600/70 rounded-full text-green-300 text-lg font-thin">
+                  Get Started {"!"}
                 </Button>
               </Link>
             </div>
