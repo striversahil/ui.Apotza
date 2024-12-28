@@ -11,6 +11,10 @@ import {
   Title as PaginationTitle,
   href as PaginationHref,
 } from "@repo/components/core/Pagination";
+import {
+  Title as ToastTitle,
+  href as ToastHref,
+} from "@repo/components/core/Toast";
 
 export const Reference = [
   {
@@ -24,5 +28,9 @@ export const Reference = [
   {
     title: PaginationTitle,
     href: PaginationHref,
+  },
+  {
+    title: ToastTitle,
+    href: ToastHref,
   },
 ];

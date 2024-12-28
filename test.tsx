@@ -1,142 +1,176 @@
 //TSX code
 "use client";
-import { useState } from "react";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import { FiInfo } from "react-icons/fi";
+import { ImWarning } from "react-icons/im";
+import { IoIosClose } from "react-icons/io";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
+import { MdErrorOutline } from "react-icons/md";
 
-interface PaginationProps {
-  totalPages: number;
-  initialPage?: number;
-  onPageChange?: (page: number) => void;
-  maxVisiblePages?: number;
+enum ToastType {
+  DEFAULT = "default",
+  SUCCESS = "success",
+  ERROR = "error",
+  WARNING = "warning",
+  INFO = "info",
 }
 
-const DevPagination = ({
-  totalPages,
-  initialPage = 1,
-  onPageChange = () => {},
-  maxVisiblePages = 7,
-}: PaginationProps) => {
-  const [currentPage, setCurrentPage] = useState(initialPage);
+interface ToastClass {
+  className: string;
+  icon: JSX.Element;
+}
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    onPageChange(page);
-  };
-
-  const renderPageNumbers = () => {
-    // Calculate start and end pages
-    const pages = [];
-    let startPage = 1;
-    let endPage = totalPages;
-
-    if (totalPages > maxVisiblePages) {
-      const middlePoint = Math.floor(maxVisiblePages / 2);
-
-      if (currentPage <= middlePoint) {
-        endPage = maxVisiblePages - 2;
-      } else if (currentPage >= totalPages - middlePoint) {
-        startPage = totalPages - maxVisiblePages + 3;
-      } else {
-        startPage = currentPage - middlePoint + 2;
-        endPage = currentPage + middlePoint - 2;
-      }
-    }
-
-    // Add first page
-    if (startPage > 1) {
-      pages.push(
-        <button
-          key={1}
-          onClick={() => handlePageChange(1)}
-          className={`p-2 rounded-full ${
-            currentPage === 1
-              ? "bg-[#06b6d4] !text-white"
-              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
-          }`}
-        >
-          1
-        </button>
-      );
-      if (startPage > 2) {
-        // Add ellipsis
-        pages.push(
-          <span key="start-ellipsis" className="px-2 py-1  text-[#06b6d4]">
-            ...
-          </span>
-        );
-      }
-    }
-
-    // Add middle pages
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`p-2 rounded-full ${
-            currentPage === i
-              ? "bg-[#06b6d4] !text-white"
-              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
-          }`}
-        >
-          {i}
-        </button>
-      );
-    }
-
-    // Add last page
-    if (endPage < totalPages) {
-      if (endPage < totalPages - 1) {
-        pages.push(
-          <span key="end-ellipsis" className="px-2 py-1  text-[#06b6d4]">
-            ...
-          </span>
-        );
-      }
-      pages.push(
-        <button
-          key={totalPages}
-          onClick={() => handlePageChange(totalPages)}
-          className={`p-2 rounded-full ${
-            currentPage === totalPages
-              ? "bg-[#06b6d4] !text-white"
-              : "text-[#06b6d4] hover:bg-[#06b6d4]/40"
-          }`}
-        >
-          {totalPages}
-        </button>
-      );
-    }
-
-    return pages;
-  };
-
-  return (
-    <div className="flex *:!select-none items-center gap-1 bg-[#F5F8FF] dark:bg-[#1f2937] rounded-full p-1 border border-[#06b6d4]/10">
-      <button
-        onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
-        disabled={currentPage === 1}
-        className="p-2 text-2xl rounded-full text-[#06b6d4] hover:bg-[#06b6d4]/50 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <BiChevronLeft />
-      </button>
-      <div
-        className="md:grid flex flex-wrap gap-2 *:aspect-square"
-        style={{
-          gridTemplateColumns: `repeat(${maxVisiblePages}, minmax(0, 1fr))`,
-        }}
-      >
-        {renderPageNumbers()}
-      </div>
-      <button
-        onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
-        disabled={currentPage === totalPages}
-        className="p-2 text-2xl rounded-full text-[#06b6d4] hover:bg-[#06b6d4]/50 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        <BiChevronRight />
-      </button>
-    </div>
-  );
+type ToastClassMap = {
+  [key in ToastType]: ToastClass;
 };
 
-export default DevPagination;
+const TOAST_CLASSES: ToastClassMap = {
+  [ToastType.DEFAULT]: {
+    className:
+      "bg-[#F5F8FF] dark:bg-[#1f2937] after:bg-[#06b6d4] after:bg-[#06b6d4]/70 border-[#06b6d4]/50",
+    icon: <></>,
+  },
+  [ToastType.SUCCESS]: {
+    className:
+      "bg-green-50 text-green-500 border-green-500/50 after:bg-green-500",
+    icon: <IoCheckmarkCircleOutline />,
+  },
+  [ToastType.ERROR]: {
+    className: "bg-red-50 text-red-500 border-red-500/50 after:bg-red-500",
+    icon: <MdErrorOutline />,
+  },
+  [ToastType.WARNING]: {
+    className:
+      "bg-yellow-50 text-yellow-500 border-yellow-500/50 after:bg-yellow-500",
+    icon: <ImWarning />,
+  },
+  [ToastType.INFO]: {
+    className: "bg-blue-50 text-blue-500 border-blue-500/50 after:bg-blue-500",
+    icon: <FiInfo />,
+  },
+};
+
+const MAX_TOASTS = 10;
+let toastContainer: HTMLDivElement | null = null;
+let activeToasts: HTMLDivElement[] = [];
+
+function createToastContainer(): HTMLDivElement {
+  if (!toastContainer) {
+    toastContainer = document.createElement("div");
+    toastContainer.className =
+      "fixed bottom-4 right-4 z-50 flex flex-col gap-2";
+    document.body.appendChild(toastContainer);
+  }
+  return toastContainer;
+}
+
+function removeToastContainer(): void {
+  if (toastContainer && activeToasts.length === 0) {
+    document.body.removeChild(toastContainer);
+    toastContainer = null;
+  }
+}
+
+function createToastElement(
+  message: string,
+  type: ToastType = ToastType.DEFAULT
+): HTMLDivElement {
+  const toast = document.createElement("div");
+  const toastClass = TOAST_CLASSES[type];
+
+  toast.innerHTML = `<div class="${toastClass.className} 
+    p-3 pl-5 rounded-md shadow-lg border
+    flex items-center justify-between
+    after:content-[''] after:absolute after:inset-y-1 after:left-1 after:w-1 after:rounded-full
+    transform transition-all duration-300 ease-in-out
+    min-w-[300px] max-w-md toast-dir">
+    <div class="flex items-center gap-2">${ReactDOMServer.renderToStaticMarkup(
+      toastClass.icon
+    )}<p>${message}</p></div>
+    <button class="close-toast text-xl">${ReactDOMServer.renderToStaticMarkup(
+      <IoIosClose />
+    )}</button>
+    </div>`;
+
+  toast.querySelector(".close-toast")?.addEventListener("click", () => {
+    removeToast(toast);
+  });
+  return toast;
+}
+
+function addToast(toast: HTMLDivElement): void {
+  const container = createToastContainer();
+  while (activeToasts.length >= MAX_TOASTS) {
+    const oldestToast = activeToasts.shift();
+    if (oldestToast) removeToast(oldestToast, false);
+  }
+
+  container.appendChild(toast);
+  activeToasts.push(toast);
+
+  requestAnimationFrame(() => {
+    const toastDir = toast.querySelector(".toast-dir") as HTMLElement;
+    if (toastDir) {
+      toastDir.style.transform = "translateX(0)";
+      toastDir.style.opacity = "1";
+    }
+  });
+}
+
+function removeToast(toast: HTMLDivElement, updateArray: boolean = true): void {
+  if (!toast.parentElement) return;
+
+  const toastDir = toast.querySelector(".toast-dir") as HTMLElement;
+  if (toastDir) {
+    toastDir.style.transform = "translateX(100%)";
+    toastDir.style.opacity = "0";
+  }
+
+  setTimeout(() => {
+    if (toast.parentElement === toastContainer) {
+      toastContainer?.removeChild(toast);
+      if (updateArray) {
+        const index = activeToasts.indexOf(toast);
+        if (index > -1) {
+          activeToasts.splice(index, 1);
+        }
+      }
+      if (activeToasts.length === 0) {
+        removeToastContainer();
+      }
+    }
+  }, 300);
+}
+
+function showToast(message: string, type: ToastType = ToastType.DEFAULT): void {
+  const toast = createToastElement(message, type);
+  const toastDir = toast.querySelector(".toast-dir") as HTMLElement;
+  if (toastDir) {
+    toastDir.style.transform = "translateX(100%)";
+  }
+
+  addToast(toast);
+
+  setTimeout(() => {
+    removeToast(toast);
+  }, 3000);
+}
+
+interface ToastFunction {
+  (message: string): void;
+  success: (message: string) => void;
+  error: (message: string) => void;
+  warning: (message: string) => void;
+  info: (message: string) => void;
+}
+
+export const toast: ToastFunction = Object.assign(
+  (message: string) => showToast(message, ToastType.DEFAULT),
+  {
+    success: (message: string) => showToast(message, ToastType.SUCCESS),
+    error: (message: string) => showToast(message, ToastType.ERROR),
+    warning: (message: string) => showToast(message, ToastType.WARNING),
+    info: (message: string) => showToast(message, ToastType.INFO),
+  }
+);
