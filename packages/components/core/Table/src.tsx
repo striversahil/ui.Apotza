@@ -27,7 +27,7 @@ export const Table: React.FC<TableProp> = ({
   const headers = columns.length //Taking First Row if Column not Provided
     ? columns.map((col) => (typeof col === "string" ? col : col.head))
     : data && data.length
-      ? Object.keys(data[0])
+      ? Object.keys(!data[0])
       : [];
 
   if (columns.length) {
@@ -53,6 +53,10 @@ export const Table: React.FC<TableProp> = ({
     );
   }
 
+  const isValidStickyColumn = (column: string) => {
+    return headers.includes(column);
+  };
+
   const formatCellValue = (cell: any) => {
     if (React.isValidElement(cell)) return cell;
     if (cell === undefined || cell === null) return "-";
@@ -68,13 +72,13 @@ export const Table: React.FC<TableProp> = ({
   });
 
   return (
-    <table className="w-full">
+    <table className="flex flex-col overflow-x-auto">
       <thead>
-        <tr className="sticky top-0 uppercase">
+        <tr className="top-0 uppercase">
           {headers.map((column, index) => (
             <th
               key={index}
-              className="box-content border-[2px] p-2 border-blue-300  "
+              className={`box-content border-[2px] px-4 py-2 border-blue-300 `}
             >
               {column}
             </th>
@@ -87,7 +91,8 @@ export const Table: React.FC<TableProp> = ({
             {headers.map((column, index) => (
               <td
                 key={index}
-                className="border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200"
+                className={`border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200 
+                  ${isValidStickyColumn(column) ? "sticky z-10" : ""}`}
               >
                 {formatCellValue(row[column])}
               </td>
