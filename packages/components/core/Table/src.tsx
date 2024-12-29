@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 
 interface Column {
   head: string;
@@ -53,10 +54,6 @@ export const Table: React.FC<TableProp> = ({
     );
   }
 
-  const isValidStickyColumn = (column: string) => {
-    return headers.includes(column);
-  };
-
   const formatCellValue = (cell: any) => {
     if (React.isValidElement(cell)) return cell;
     if (cell === undefined || cell === null) return "-";
@@ -86,17 +83,28 @@ export const Table: React.FC<TableProp> = ({
         </tr>
       </thead>
       <tbody className="overflow-y-scroll">
-        {data.map((row, index) => (
-          <tr key={index}>
-            {headers.map((column, index) => (
-              <td
-                key={index}
-                className={`border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200 
-                  ${isValidStickyColumn(column) ? "sticky z-10" : ""}`}
-              >
-                {formatCellValue(row[column])}
-              </td>
-            ))}
+        {data.map((rowData, rowIndex) => (
+          <tr key={rowIndex}>
+            {headers.map((header, colIndex) => {
+              const isSticky = stickyColumns.includes(header);
+              const leftSticky =
+                isSticky && headers.indexOf(header) < headers.length / 2;
+              const rightSticky =
+                isSticky && headers.indexOf(header) > headers.length / 2;
+
+              return (
+                <td
+                  key={colIndex}
+                  className={cn(
+                    "border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200",
+                    rightSticky && "sticky z-10 bg-[#F5F8FF] right-0",
+                    leftSticky && "sticky z-10 bg-[#F5F8FF] left-0"
+                  )}
+                >
+                  {formatCellValue(rowData[header])}
+                </td>
+              );
+            })}
           </tr>
         ))}
       </tbody>
