@@ -69,17 +69,35 @@ export const Table: React.FC<TableProp> = ({
   });
 
   return (
-    <table className="flex flex-col overflow-x-auto">
+    <table className="grid grid-cols-1 overflow-x-auto">
       <thead>
         <tr className="top-0 uppercase">
-          {headers.map((column, index) => (
-            <th
-              key={index}
-              className={`box-content border-[2px] px-4 py-2 border-blue-300 `}
-            >
-              {column}
-            </th>
-          ))}
+          {/* Map over the headers and render a th element for each one */}
+          {headers.map((column, index) => {
+            const isSticky = stickyColumns.includes(column);
+            const leftSticky =
+              isSticky && headers.indexOf(column) < headers.length / 2;
+            const rightSticky =
+              isSticky && headers.indexOf(column) > headers.length / 2;
+
+            const rowStyle = styleRows.find((row) => index === row.position);
+            return (
+              <th
+                key={index}
+                className={`
+                  box-content
+                  border-[2px]
+                  px-4
+                  py-2
+                  border-blue-300
+                  ${leftSticky ? "sticky left-0 z-10 bg-blue-400" : ""}
+                  ${rightSticky ? "sticky right-0 z-10 bg-blue-400" : ""}
+                `}
+              >
+                {column}
+              </th>
+            );
+          })}
         </tr>
       </thead>
       <tbody className="overflow-y-scroll">
@@ -91,14 +109,18 @@ export const Table: React.FC<TableProp> = ({
                 isSticky && headers.indexOf(header) < headers.length / 2;
               const rightSticky =
                 isSticky && headers.indexOf(header) > headers.length / 2;
+              const rowStyle = styleRows.find(
+                (row) => rowIndex === row.position
+              );
 
               return (
                 <td
                   key={colIndex}
                   className={cn(
-                    "border-[2px] p-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200",
-                    rightSticky && "sticky z-10 bg-[#F5F8FF] right-0",
-                    leftSticky && "sticky z-10 bg-[#F5F8FF] left-0"
+                    "border-[2px] px-4 py-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200",
+                    rightSticky && "sticky  bg-blue-400 right-0",
+                    leftSticky && "sticky  bg-blue-400 left-0",
+                    rowStyle && rowStyle.style
                   )}
                 >
                   {formatCellValue(rowData[header])}
