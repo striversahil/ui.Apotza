@@ -68,7 +68,6 @@ export const Usage = () => {
     <Table
       data={data}
       styleRows={[{ position: 3, style: "bg-[#06b6d4]/30" }]}
-      stickyColumns={["id", "name", "occupation"]}
       columns={[
         "id",
         "name",

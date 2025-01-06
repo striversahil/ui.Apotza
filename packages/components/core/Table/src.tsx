@@ -15,16 +15,18 @@ interface StyleProp {
 type TableProp = {
   data: Record<string, React.ReactNode>[];
   columns: (string | Column)[];
-  stickyColumns?: string[];
   styleRows?: StyleProp[];
 };
 
 export const Table: React.FC<TableProp> = ({
   data,
   columns = [],
-  stickyColumns = [],
   styleRows = [],
 }: TableProp) => {
+  const [selectedRow, setSelectedRow] = React.useState<Array<number> | null>(
+    null
+  );
+
   const headers = columns.length //Taking First Row if Column not Provided
     ? columns.map((col) => (typeof col === "string" ? col : col.head))
     : data && data.length
@@ -62,37 +64,34 @@ export const Table: React.FC<TableProp> = ({
     return cell;
   };
 
-  const rows = data.map((row) => {
-    return headers.map((col) => {
-      return row[col];
-    });
-  });
+  const handleSelectAll = () => {
+    if (selectedRow) {
+      setSelectedRow(null);
+    } else {
+      setSelectedRow(data.map((_, index) => index));
+    }
+  };
+
+  const handleRowSelect = (index: number) => {
+    if (selectedRow && selectedRow.includes(index)) {
+      setSelectedRow(selectedRow.filter((row) => row !== index));
+    } else {
+      setSelectedRow([...(selectedRow || []), index]);
+    }
+    console.log("selectedRow", selectedRow);
+  };
 
   return (
     <table className="grid grid-cols-1 overflow-x-auto">
       <thead>
         <tr className="top-0 uppercase">
+          <th onClick={handleSelectAll}>Checkbox</th>
           {/* Map over the headers and render a th element for each one */}
           {headers.map((column, index) => {
-            const isSticky = stickyColumns.includes(column);
-            const leftSticky =
-              isSticky && headers.indexOf(column) < headers.length / 2;
-            const rightSticky =
-              isSticky && headers.indexOf(column) > headers.length / 2;
-
-            const rowStyle = styleRows.find((row) => index === row.position);
             return (
               <th
                 key={index}
-                className={`
-                  box-content
-                  border-[2px]
-                  px-4
-                  py-2
-                  border-blue-300
-                  ${leftSticky ? "sticky left-0 z-10 bg-blue-400" : ""}
-                  ${rightSticky ? "sticky right-0 z-10 bg-blue-400" : ""}
-                `}
+                className={`box-content border-[2px] px-4 py-2 border-blue-300`}
               >
                 {column}
               </th>
@@ -101,26 +100,24 @@ export const Table: React.FC<TableProp> = ({
         </tr>
       </thead>
       <tbody className="overflow-y-scroll">
+        {/* Map over the data and render a tr element for each row */}
         {data.map((rowData, rowIndex) => (
           <tr key={rowIndex}>
+            <td
+              className="border-[2px] px-4 py-2 border-blue-300 cursor-pointer"
+              onClick={() => handleRowSelect(rowIndex)}
+            >
+              <input type="checkbox" name="" id="" />
+            </td>
             {headers.map((header, colIndex) => {
-              const isSticky = stickyColumns.includes(header);
-              const leftSticky =
-                isSticky && headers.indexOf(header) < headers.length / 2;
-              const rightSticky =
-                isSticky && headers.indexOf(header) > headers.length / 2;
-              const rowStyle = styleRows.find(
-                (row) => rowIndex === row.position
-              );
-
               return (
                 <td
                   key={colIndex}
                   className={cn(
                     "border-[2px] px-4 py-2 border-blue-300 bg-gradient-to-tr to-transparent text-center text-gray-200",
-                    rightSticky && "sticky  bg-blue-400 right-0",
-                    leftSticky && "sticky  bg-blue-400 left-0",
-                    rowStyle && rowStyle.style
+                    selectedRow && selectedRow.includes(rowIndex)
+                      ? "bg-blue-300/80"
+                      : ""
                   )}
                 >
                   {formatCellValue(rowData[header])}
