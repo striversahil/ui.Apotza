@@ -65,16 +65,21 @@ export const Table: React.FC<TableProp> = ({
   };
 
   const handleSelectAll = () => {
-    if (selectedRow) {
+    if (selectedRow?.length === data.length) {
       setSelectedRow(null);
+    } else if (selectedRow?.length || 0 < data.length) {
+      setSelectedRow(data.map((_, index) => index));
     } else {
       setSelectedRow(data.map((_, index) => index));
     }
+    console.log("selectedRow", selectedRow);
   };
 
   const handleRowSelect = (index: number) => {
-    if (selectedRow && selectedRow.includes(index)) {
+    if (selectedRow?.includes(index)) {
       setSelectedRow(selectedRow.filter((row) => row !== index));
+    } else if (!selectedRow) {
+      setSelectedRow([index]);
     } else {
       setSelectedRow([...(selectedRow || []), index]);
     }
@@ -82,9 +87,9 @@ export const Table: React.FC<TableProp> = ({
   };
 
   return (
-    <table className="grid grid-cols-1 overflow-x-auto">
+    <table className=" overflow-x-auto">
       <thead>
-        <tr className="top-0 uppercase border-[2px] px-6 py-2 border-blue-300">
+        <tr className="top-0 uppercase border-[2px] mx-[5px] border-blue-300">
           <th onClick={handleSelectAll}>
             {" "}
             <input
@@ -121,7 +126,7 @@ export const Table: React.FC<TableProp> = ({
                 name=""
                 id=""
                 className="cursor-pointer size-6"
-                checked={selectedRow?.includes(rowIndex)}
+                checked={selectedRow?.includes(rowIndex) || false}
               />
             </td>
             {headers.map((header, colIndex) => {
