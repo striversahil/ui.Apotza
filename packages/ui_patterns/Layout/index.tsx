@@ -7,7 +7,7 @@ type Props = {
   description: string;
   Usage: React.ElementType;
   code: string;
-  prop: Array<Object>;
+  prop: Object;
 };
 
 const Code_Layout = ({ title, description, Usage, code, prop }: Props) => {

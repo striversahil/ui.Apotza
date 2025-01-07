@@ -9,10 +9,10 @@ type Props = {
 };
 
 const Hero = (props: Props) => {
-  const [first, setstate] = React.useState(true);
+  const [first, setstate] = React.useState<boolean>(true);
 
   return (
-    <div className="min-h-[250px] ">
+    <div className="min-h-[250px] w-full">
       <button
         onClick={() => setstate(!first)}
         className="flex justify-end text-white  bg-slate-500 px-4 py-2 w-fit h-fit rounded-full hover:bg-slate-600"
