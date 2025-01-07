@@ -84,8 +84,17 @@ export const Table: React.FC<TableProp> = ({
   return (
     <table className="grid grid-cols-1 overflow-x-auto">
       <thead>
-        <tr className="top-0 uppercase">
-          <th onClick={handleSelectAll}>Checkbox</th>
+        <tr className="top-0 uppercase border-[2px] px-6 py-2 border-blue-300">
+          <th onClick={handleSelectAll}>
+            {" "}
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              className="cursor-pointer size-6"
+              checked={selectedRow?.length === data.length}
+            />
+          </th>
           {/* Map over the headers and render a th element for each one */}
           {headers.map((column, index) => {
             return (
@@ -104,10 +113,16 @@ export const Table: React.FC<TableProp> = ({
         {data.map((rowData, rowIndex) => (
           <tr key={rowIndex}>
             <td
-              className="border-[2px] px-4 py-2 border-blue-300 cursor-pointer"
+              className="border-[2px] p-3  focus: focus:border-blue-300 focus:bg-blue-300 border-blue-300 cursor-pointer"
               onClick={() => handleRowSelect(rowIndex)}
             >
-              <input type="checkbox" name="" id="" />
+              <input
+                type="checkbox"
+                name=""
+                id=""
+                className="cursor-pointer size-6"
+                checked={selectedRow?.includes(rowIndex)}
+              />
             </td>
             {headers.map((header, colIndex) => {
               return (
