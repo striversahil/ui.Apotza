@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { CheckBox } from "../Checkbox";
 
 interface Column {
   head: string;
@@ -65,16 +66,21 @@ export const Table: React.FC<TableProp> = ({
   };
 
   const handleSelectAll = () => {
-    if (selectedRow) {
+    if (selectedRow?.length === data.length) {
       setSelectedRow(null);
+    } else if (selectedRow?.length || 0 < data.length) {
+      setSelectedRow(data.map((_, index) => index));
     } else {
       setSelectedRow(data.map((_, index) => index));
     }
+    console.log("selectedRow", selectedRow);
   };
 
   const handleRowSelect = (index: number) => {
-    if (selectedRow && selectedRow.includes(index)) {
+    if (selectedRow?.includes(index)) {
       setSelectedRow(selectedRow.filter((row) => row !== index));
+    } else if (!selectedRow) {
+      setSelectedRow([index]);
     } else {
       setSelectedRow([...(selectedRow || []), index]);
     }
@@ -82,10 +88,21 @@ export const Table: React.FC<TableProp> = ({
   };
 
   return (
-    <table className="grid grid-cols-1 overflow-x-auto">
+    <table className=" overflow-x-auto">
       <thead>
-        <tr className="top-0 uppercase">
-          <th onClick={handleSelectAll}>Checkbox</th>
+        <tr className="top-0 uppercase border-[2px] mx-[5px] border-blue-300">
+          <th className="p-2" onClick={handleSelectAll}>
+            {" "}
+            <CheckBox checked={selectedRow?.length === data.length} />
+            {/* <input
+              type="checkbox"
+              name=""
+              id=""
+              className="cursor-pointer size-6"
+              checked={selectedRow?.length === data.length}
+              readOnly
+            /> */}
+          </th>
           {/* Map over the headers and render a th element for each one */}
           {headers.map((column, index) => {
             return (
@@ -104,10 +121,10 @@ export const Table: React.FC<TableProp> = ({
         {data.map((rowData, rowIndex) => (
           <tr key={rowIndex}>
             <td
-              className="border-[2px] px-4 py-2 border-blue-300 cursor-pointer"
+              className="border-[2px] p-2  focus: focus:border-blue-300 focus:bg-blue-300 border-blue-300 cursor-pointer"
               onClick={() => handleRowSelect(rowIndex)}
             >
-              <input type="checkbox" name="" id="" />
+              <CheckBox checked={selectedRow?.includes(rowIndex) || false} />
             </td>
             {headers.map((header, colIndex) => {
               return (

@@ -33,7 +33,7 @@ export default function CompIdPage({ params }: Props) {
         <Sidebar />
 
         <div className="flex-grow mt-[100px] mx-10">
-          {component ? (
+          {component && (
             <Code_Layout
               title={component.title}
               description={component.description}
@@ -41,10 +41,6 @@ export default function CompIdPage({ params }: Props) {
               code={component.code}
               prop={component.prop}
             />
-          ) : (
-            <div className="h-screen flex items-center justify-center">
-              "404 Not Found"
-            </div>
           )}
         </div>
       </div>

@@ -15,6 +15,25 @@ import {
   Title as ToastTitle,
   href as ToastHref,
 } from "@repo/components/core/Toast";
+import {
+  Title as CheckboxTitle,
+  href as CheckboxHref,
+} from "@repo/components/core/Checkbox";
+
+import {
+  Title as DialogTitle,
+  href as DialogHref,
+} from "@repo/components/core/DialogBox";
+
+import {
+  Title as SwitchTitle,
+  href as SwitchHref,
+} from "@repo/components/core/Switch";
+
+import {
+  Title as TooltipTitle,
+  href as TooltipHref,
+} from "@repo/components/core/Tooltip";
 
 export const Reference = [
   {
@@ -28,6 +47,22 @@ export const Reference = [
   {
     title: ToastTitle,
     href: ToastHref,
+  },
+  {
+    title: CheckboxTitle,
+    href: CheckboxHref,
+  },
+  {
+    title: DialogTitle,
+    href: DialogHref,
+  },
+  {
+    title: SwitchTitle,
+    href: SwitchHref,
+  },
+  {
+    title: TooltipTitle,
+    href: TooltipHref,
   },
   {
     title: TemplateTitle,
