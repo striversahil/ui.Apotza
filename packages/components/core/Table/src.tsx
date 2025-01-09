@@ -98,6 +98,7 @@ export const Table: React.FC<TableProp> = ({
               id=""
               className="cursor-pointer size-6"
               checked={selectedRow?.length === data.length}
+              readOnly
             />
           </th>
           {/* Map over the headers and render a th element for each one */}
@@ -127,6 +128,7 @@ export const Table: React.FC<TableProp> = ({
                 id=""
                 className="cursor-pointer size-6"
                 checked={selectedRow?.includes(rowIndex) || false}
+                readOnly
               />
             </td>
             {headers.map((header, colIndex) => {
