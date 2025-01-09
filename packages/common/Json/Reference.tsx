@@ -25,6 +25,11 @@ import {
   href as DialogHref,
 } from "@repo/components/core/DialogBox";
 
+import {
+  Title as SwitchTitle,
+  href as SwitchHref,
+} from "@repo/components/core/Switch";
+
 export const Reference = [
   {
     title: TableTitle,
@@ -49,5 +54,9 @@ export const Reference = [
   {
     title: TemplateTitle,
     href: TemplateHref,
+  },
+  {
+    title: SwitchTitle,
+    href: SwitchHref,
   },
 ];

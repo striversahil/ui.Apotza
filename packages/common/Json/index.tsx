@@ -7,6 +7,7 @@ import * as Pagination from "@repo/components/core/Pagination";
 import * as Toast from "@repo/components/core/Toast";
 import * as Checkbox from "@repo/components/core/Checkbox";
 import * as Dialog from "@repo/components/core/DialogBox";
+import * as Switch from "@repo/components/core/Switch";
 
 interface Props {
   title: string;
@@ -58,5 +59,12 @@ export const data: { [key: string]: Props } = {
     usage: Dialog.Usage,
     code: Dialog.code,
     prop: Dialog.Props,
+  },
+  switch: {
+    title: Switch.Title,
+    description: Switch.Description,
+    usage: Switch.Usage,
+    code: Switch.code,
+    prop: Switch.Props,
   },
 };
