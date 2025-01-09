@@ -15,6 +15,10 @@ import {
   Title as ToastTitle,
   href as ToastHref,
 } from "@repo/components/core/Toast";
+import {
+  Title as CheckboxTitle,
+  href as CheckboxHref,
+} from "@repo/components/core/Checkbox";
 
 export const Reference = [
   {
@@ -32,5 +36,9 @@ export const Reference = [
   {
     title: TemplateTitle,
     href: TemplateHref,
+  },
+  {
+    title: CheckboxTitle,
+    href: CheckboxHref,
   },
 ];

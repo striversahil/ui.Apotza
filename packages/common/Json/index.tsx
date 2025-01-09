@@ -5,6 +5,7 @@ import * as Template from "@repo/components/core/__template";
 import * as Table from "@repo/components/core/Table";
 import * as Pagination from "@repo/components/core/Pagination";
 import * as Toast from "@repo/components/core/Toast";
+import * as Checkbox from "@repo/components/core/Checkbox";
 
 interface Props {
   title: string;
@@ -42,5 +43,12 @@ export const data: { [key: string]: Props } = {
     usage: Toast.Usage,
     code: Toast.code,
     prop: Toast.Props,
+  },
+  checkbox: {
+    title: Checkbox.Title,
+    description: Checkbox.Description,
+    usage: Checkbox.Usage,
+    code: Checkbox.code,
+    prop: Checkbox.Props,
   },
 };
