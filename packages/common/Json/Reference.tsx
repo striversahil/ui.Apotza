@@ -30,6 +30,11 @@ import {
   href as SwitchHref,
 } from "@repo/components/core/Switch";
 
+import {
+  Title as TooltipTitle,
+  href as TooltipHref,
+} from "@repo/components/core/Tooltip";
+
 export const Reference = [
   {
     title: TableTitle,
@@ -52,11 +57,15 @@ export const Reference = [
     href: DialogHref,
   },
   {
-    title: TemplateTitle,
-    href: TemplateHref,
-  },
-  {
     title: SwitchTitle,
     href: SwitchHref,
+  },
+  {
+    title: TooltipTitle,
+    href: TooltipHref,
+  },
+  {
+    title: TemplateTitle,
+    href: TemplateHref,
   },
 ];

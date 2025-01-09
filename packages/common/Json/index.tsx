@@ -8,6 +8,7 @@ import * as Toast from "@repo/components/core/Toast";
 import * as Checkbox from "@repo/components/core/Checkbox";
 import * as Dialog from "@repo/components/core/DialogBox";
 import * as Switch from "@repo/components/core/Switch";
+import * as Tooltip from "@repo/components/core/Tooltip";
 
 interface Props {
   title: string;
@@ -66,5 +67,12 @@ export const data: { [key: string]: Props } = {
     usage: Switch.Usage,
     code: Switch.code,
     prop: Switch.Props,
+  },
+  tooltip: {
+    title: Tooltip.Title,
+    description: Tooltip.Description,
+    usage: Tooltip.Usage,
+    code: Tooltip.code,
+    prop: Tooltip.Props,
   },
 };
