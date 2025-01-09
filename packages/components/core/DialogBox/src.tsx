@@ -14,7 +14,7 @@ export const Index = (props: Props) => {
       <Dialog.Root>
         <Dialog.Trigger>{props.trigger}</Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed z-10 top-0 left-0 right-0 bottom-0 bg-black/50" />
+          <Dialog.Overlay className="fixed z-10 top-0 left-0 right-0 bottom-0 backdrop-blur-sm" />
           <Dialog.Content className="fixed z-10 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-1/3 h-1/3 bg-gradient-to-tr from-blue-500 to-slate-600 rounded-[15px]">
             <Dialog.Title className="text-2xl bg-white/15 rounded-t-[15px] font-bold text-center py-4">
               {props.title}
