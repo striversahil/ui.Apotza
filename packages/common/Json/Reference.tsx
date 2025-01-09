@@ -20,6 +20,11 @@ import {
   href as CheckboxHref,
 } from "@repo/components/core/Checkbox";
 
+import {
+  Title as DialogTitle,
+  href as DialogHref,
+} from "@repo/components/core/DialogBox";
+
 export const Reference = [
   {
     title: TableTitle,
@@ -34,11 +39,15 @@ export const Reference = [
     href: ToastHref,
   },
   {
-    title: TemplateTitle,
-    href: TemplateHref,
-  },
-  {
     title: CheckboxTitle,
     href: CheckboxHref,
+  },
+  {
+    title: DialogTitle,
+    href: DialogHref,
+  },
+  {
+    title: TemplateTitle,
+    href: TemplateHref,
   },
 ];

@@ -6,6 +6,7 @@ import * as Table from "@repo/components/core/Table";
 import * as Pagination from "@repo/components/core/Pagination";
 import * as Toast from "@repo/components/core/Toast";
 import * as Checkbox from "@repo/components/core/Checkbox";
+import * as Dialog from "@repo/components/core/DialogBox";
 
 interface Props {
   title: string;
@@ -50,5 +51,12 @@ export const data: { [key: string]: Props } = {
     usage: Checkbox.Usage,
     code: Checkbox.code,
     prop: Checkbox.Props,
+  },
+  dialog_box: {
+    title: Dialog.Title,
+    description: Dialog.Description,
+    usage: Dialog.Usage,
+    code: Dialog.code,
+    prop: Dialog.Props,
   },
 };

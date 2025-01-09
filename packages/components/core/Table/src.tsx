@@ -1,5 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
+import { CheckBox } from "../Checkbox";
 
 interface Column {
   head: string;
@@ -90,16 +91,17 @@ export const Table: React.FC<TableProp> = ({
     <table className=" overflow-x-auto">
       <thead>
         <tr className="top-0 uppercase border-[2px] mx-[5px] border-blue-300">
-          <th onClick={handleSelectAll}>
+          <th className="p-2" onClick={handleSelectAll}>
             {" "}
-            <input
+            <CheckBox checked={selectedRow?.length === data.length} />
+            {/* <input
               type="checkbox"
               name=""
               id=""
               className="cursor-pointer size-6"
               checked={selectedRow?.length === data.length}
               readOnly
-            />
+            /> */}
           </th>
           {/* Map over the headers and render a th element for each one */}
           {headers.map((column, index) => {
@@ -119,17 +121,10 @@ export const Table: React.FC<TableProp> = ({
         {data.map((rowData, rowIndex) => (
           <tr key={rowIndex}>
             <td
-              className="border-[2px] p-3  focus: focus:border-blue-300 focus:bg-blue-300 border-blue-300 cursor-pointer"
+              className="border-[2px] p-2  focus: focus:border-blue-300 focus:bg-blue-300 border-blue-300 cursor-pointer"
               onClick={() => handleRowSelect(rowIndex)}
             >
-              <input
-                type="checkbox"
-                name=""
-                id=""
-                className="cursor-pointer size-6"
-                checked={selectedRow?.includes(rowIndex) || false}
-                readOnly
-              />
+              <CheckBox checked={selectedRow?.includes(rowIndex) || false} />
             </td>
             {headers.map((header, colIndex) => {
               return (

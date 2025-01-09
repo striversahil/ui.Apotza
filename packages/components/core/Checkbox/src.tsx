@@ -1,28 +1,37 @@
 import React from "react";
 import * as Checkbox from "@radix-ui/react-checkbox";
 
-import { CheckIcon } from "@radix-ui/react-icons";
+import { cn } from "@/lib/utils";
 
 type CheckboxProps = {
   checked?: boolean;
   onChange?: (checked: boolean) => void;
+  size?: "sm" | "default" | "lg";
 };
 
-export const Index = ({ checked, onChange }: CheckboxProps) => {
+const sizes = {
+  sm: "w-6 h-6 scale-75",
+  default: "w-10 h-10",
+  lg: "w-12 h-12 scale-110",
+};
+
+export const CheckBox = ({ checked, onChange }: CheckboxProps) => {
   const [isChecked, setIsChecked] = React.useState(checked || false);
 
   return (
-    <div>
+    <div className="flex items-center">
       <Checkbox.Root
         checked={checked}
-        className="p-2 w-10 h-10 rounded-[10px]  bg-blue-600/70 border-[2px] border-lime-500"
+        className={cn(
+          "p-2 w-10 h-10 rounded-[10px]  bg-blue-600/70 border-[3px] outline-none border-green-700 data-[state=checked]:bg-lime-500 transition-all duration-500 "
+        )}
         onClick={() => {
           setIsChecked(!isChecked);
           onChange && onChange(!isChecked);
         }}
       >
-        <Checkbox.Indicator className="text-white flex items-center justify-center scale-[1.8] ">
-          {isChecked && (
+        <Checkbox.Indicator className="text-white flex items-center justify-center scale-[1.8] overflow-visible">
+          {(isChecked || checked) && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="1em"

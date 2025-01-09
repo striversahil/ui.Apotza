@@ -1,12 +1,15 @@
 import React from "react";
-import { CheckBox } from "./src";
+import { Index } from "./src";
 
 type Props = {};
 
 export const Usage = (props: Props) => {
   return (
     <div className="">
-      <CheckBox onChange={(checked) => console.log(checked)} />
+      <button>DialogBox</button>
+      <Index>
+        <div>Sahil is Great</div>
+      </Index>
     </div>
   );
 };
