@@ -13,9 +13,19 @@ export const Usage = (props: Props) => {
   };
 
   return (
-    <div className="w-1/3 h-[200px] bg-slate-800 flex justify-center items-center rounded-[10px]">
+    <div className="w-1/2 h-[200px] bg-white/10 flex justify-evenly items-center rounded-[10px] ">
       <Tooltip tooltip_text="This is Tooltip">
         <div className="flex text-center px-3 py-2 bg-blue-900/50 rounded-[5px]">
+          This is Trigger
+        </div>
+      </Tooltip>
+      <Tooltip tooltip_text="This is Tooltip">
+        <div className="flex text-center px-3 py-2 bg-blue-900 rounded-[5px]">
+          This is Trigger
+        </div>
+      </Tooltip>
+      <Tooltip tooltip_text="This is Tooltip">
+        <div className="flex text-center px-3 py-2 bg-red-900 rounded-[5px]">
           This is Trigger
         </div>
       </Tooltip>

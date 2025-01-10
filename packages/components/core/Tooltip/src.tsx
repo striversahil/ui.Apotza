@@ -12,7 +12,9 @@ export const Tooltip = (props: Props) => {
     <div>
       <Radix.Provider>
         <Radix.Root>
-          <Radix.Trigger asChild>{props.children}</Radix.Trigger>
+          <Radix.Trigger asChild className="cursor-pointer">
+            {props.children}
+          </Radix.Trigger>
           <Radix.Content className="flex items-center gap-2 px-2 py-1 bg-blue-400 rounded-[5px] text-white">
             <Radix.Arrow className="fill-blue-400" />
             <span className="text-sm  text-white">{props.tooltip_text}</span>

@@ -29,7 +29,7 @@ export default function CompIdPage({ params }: Props) {
 
   return (
     <div>
-      <div className="flex h-screen bg-gradient-to-tl from-blue-950 to-transparent">
+      <div className="flex min-h-screen bg-gradient-to-tl from-blue-950 to-transparent">
         <Sidebar />
 
         <div className="flex-grow mt-[100px] mx-10">
