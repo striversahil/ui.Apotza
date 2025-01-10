@@ -37,35 +37,41 @@ import {
 
 export const Reference = [
   {
-    title: TableTitle,
-    href: TableHref,
-  },
-  {
-    title: PaginationTitle,
-    href: PaginationHref,
-  },
-  {
-    title: ToastTitle,
-    href: ToastHref,
-  },
-  {
-    title: CheckboxTitle,
-    href: CheckboxHref,
-  },
-  {
-    title: DialogTitle,
-    href: DialogHref,
-  },
-  {
-    title: SwitchTitle,
-    href: SwitchHref,
-  },
-  {
-    title: TooltipTitle,
-    href: TooltipHref,
-  },
-  {
-    title: TemplateTitle,
-    href: TemplateHref,
+    groupKey: "Core",
+    groupTitle: "Core",
+    children: [
+      {
+        title: TableTitle,
+        href: TableHref,
+      },
+      {
+        title: PaginationTitle,
+        href: PaginationHref,
+      },
+      {
+        title: ToastTitle,
+        href: ToastHref,
+      },
+      {
+        title: CheckboxTitle,
+        href: CheckboxHref,
+      },
+      {
+        title: DialogTitle,
+        href: DialogHref,
+      },
+      {
+        title: SwitchTitle,
+        href: SwitchHref,
+      },
+      {
+        title: TooltipTitle,
+        href: TooltipHref,
+      },
+      {
+        title: TemplateTitle,
+        href: TemplateHref,
+      },
+    ],
   },
 ];

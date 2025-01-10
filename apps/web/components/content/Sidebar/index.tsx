@@ -15,7 +15,7 @@ const Sidebar = ({}: Props) => {
         <span className="bg-slate-400 rounded-full">✨</span>
       </div>
       <div className="flex flex-col gap-5 my-6">
-        {Reference.map((item, index) => (
+        {Reference[0]?.children.map((item, index) => (
           <Navigation_button key={index} name={item.title} path={item.href} />
         ))}
       </div>
