@@ -1,10 +1,9 @@
-// Exports for Rendering Individual Component
-export * from "./code_text";
-export * from "./description";
-export * from "./src";
-export * from "./usage";
+import React from "react";
 
-// Exports for Reference
-export const Title = `This is a title.`;
+type Props = {};
 
-export const href = `template`;
+const Template_Usage = (props: Props) => {
+  return <div>Template</div>;
+};
+
+export default Template_Usage;

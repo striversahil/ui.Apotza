@@ -2,6 +2,8 @@ import React from "react";
 
 type Props = {};
 
-export const Index = (props: Props) => {
-  return <div>Index</div>;
+const Template = (props: Props) => {
+  return <div>Template</div>;
 };
+
+export default Template;

@@ -1,6 +1,6 @@
 import * as Slug from "@repo/components";
 
-import * as Template from "@repo/components/core/__template";
+import Template_Usage from "@repo/components/core/__template";
 
 import * as Table from "@repo/components/core/Table";
 import * as Pagination from "@repo/components/core/Pagination";
@@ -20,7 +20,14 @@ interface Props {
 
 export const data: { [key: string]: Props } = {
   table: Table.Usage,
-  template: Template.Usage,
+  pagination: Pagination.Usage,
+  toast: Toast.Usage,
+  checkbox: Checkbox.Usage,
+  dialog_box: Dialog.Usage,
+  switch: Switch.Usage,
+  tooltip: Tooltip.Usage,
+  template: Template_Usage,
+
   // pagination: {
   //   title: Pagination.Title,
   //   description: Pagination.Description,
