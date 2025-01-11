@@ -13,12 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning>
-        {/* <Navbar /> */}
-        <Sidebar />
-        {children}
-      </body>
-    </html>
+    <aside suppressHydrationWarning>
+      {/* <Navbar /> */}
+      <Sidebar />
+      {children}
+    </aside>
   );
 }

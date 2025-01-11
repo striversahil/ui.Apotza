@@ -1,7 +1,6 @@
 {
   "name": "@repo/ui",
   "version": "0.0.0",
-  "type": "module",
   "description": "This Contains Core Building Blocks of UI Interface",
   "main": "./index.tsx",
   "scripts": {

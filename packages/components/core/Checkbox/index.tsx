@@ -6,6 +6,7 @@ type Props = {};
 const Checkbox_Usage = (props: Props) => {
   return (
     <div className="">
+      <div>Checkbox</div>
       <CheckBox onChange={(checked) => console.log(checked)} />
     </div>
   );
