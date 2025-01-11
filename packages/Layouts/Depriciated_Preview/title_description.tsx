@@ -13,7 +13,7 @@ const Title_Description = ({ title, description }: Props) => {
           {title}
         </span>
       </div>
-      <div className="mt-7 mb-4">
+      <div className="">
         <span className="px-4 text-gray-400 ">{description}</span>
       </div>
     </div>
