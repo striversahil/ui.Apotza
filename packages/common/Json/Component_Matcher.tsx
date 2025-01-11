@@ -1,14 +1,14 @@
 import * as Slug from "@repo/components";
 
-import Template_Usage from "@repo/components/core/__template";
+import Template_Usage from "@repo/components/base/__template";
 
-import Table_Usage from "@repo/components/core/Table";
-import Pagination_Usage from "@repo/components/core/Pagination";
-import Toast_Usage from "@repo/components/core/Toast";
-import Checkbox_Usage from "@repo/components/core/Checkbox";
-import Dialog_Usage from "@repo/components/core/DialogBox";
-import Switch_Usage from "@repo/components/core/Switch";
-import Tooltip_Usage from "@repo/components/core/Tooltip";
+import Table_Usage from "@repo/components/base/Table";
+import Pagination_Usage from "@repo/components/base/Pagination";
+import Toast_Usage from "@repo/components/base/Toast";
+import Checkbox_Usage from "@repo/components/base/Checkbox";
+import Dialog_Usage from "@repo/components/base/DialogBox";
+import Switch_Usage from "@repo/components/base/Switch";
+import Tooltip_Usage from "@repo/components/base/Tooltip";
 
 interface Props {
   // title: string;
