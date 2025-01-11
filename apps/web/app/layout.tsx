@@ -1,4 +1,4 @@
-import { Navbar } from "@repo/ui_patterns/Navbar";
+import { Navbar } from "@repo/layouts/Navbar";
 import type { Metadata } from "next";
 import "./globals.css";
 import Absolute_footer from "@/components/Landing/Footer/absolute_footer";

@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <aside suppressHydrationWarning>
       {/* <Navbar /> */}
+      <div className="fixed -z-10 w-full h-screen bg-slate-900/50 "></div>
       <Sidebar />
       {children}
     </aside>

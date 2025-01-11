@@ -29,7 +29,7 @@ export default function CompIdPage({ params }: Props) {
 
   return (
     <div>
-      <div className=" min-h-screen bg-gradient-to-tl from-blue-950 to-transparent">
+      <div className="relative min-h-screen ">
         <div className="pl-[300px] pt-[150px]">
           {Component && <Component />}
           <div className="h-screen"></div>{" "}

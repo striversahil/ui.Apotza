@@ -13,7 +13,7 @@
     "@repo/components": "*",
     "@repo/ui": "*",
     "@repo/common": "*",
-    "@repo/ui_patterns": "*",
+    "@repo/layouts": "*",
     "@repo/config": "*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
