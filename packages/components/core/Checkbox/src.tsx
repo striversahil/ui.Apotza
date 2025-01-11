@@ -1,5 +1,5 @@
 import React from "react";
-import * as Checkbox from "@radix-ui/react-checkbox";
+import * as Radix from "@radix-ui/react-checkbox";
 
 import { cn } from "@/lib/utils";
 
@@ -15,12 +15,12 @@ const sizes = {
   lg: "w-12 h-12 scale-110",
 };
 
-export const CheckBox = ({ checked, onChange }: CheckboxProps) => {
+const CheckBox = ({ checked, onChange }: CheckboxProps) => {
   const [isChecked, setIsChecked] = React.useState(checked || false);
 
   return (
     <div className="flex items-center">
-      <Checkbox.Root
+      <Radix.Root
         checked={checked}
         className={cn(
           "p-2 w-10 h-10 rounded-[10px]  bg-blue-600/70 border-[3px] outline-none border-green-700 data-[state=checked]:bg-lime-500 transition-all duration-500 "
@@ -30,7 +30,7 @@ export const CheckBox = ({ checked, onChange }: CheckboxProps) => {
           onChange && onChange(!isChecked);
         }}
       >
-        <Checkbox.Indicator className="text-white flex items-center justify-center scale-[1.8] overflow-visible">
+        <Radix.Indicator className="text-white flex items-center justify-center scale-[1.8] overflow-visible">
           {(isChecked || checked) && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,8 +57,10 @@ export const CheckBox = ({ checked, onChange }: CheckboxProps) => {
               </path>
             </svg>
           )}
-        </Checkbox.Indicator>
-      </Checkbox.Root>
+        </Radix.Indicator>
+      </Radix.Root>
     </div>
   );
 };
+
+export { CheckBox };

@@ -1,10 +1,17 @@
-// Exports for Rendering Individual Component
-export * from "./code_text";
-export * from "./description";
-export * from "./src";
-export * from "./usage";
+import React from "react";
+import { Index } from "./src";
 
-// Exports for Reference
-export const Title = `Pagination.`;
+type Props = {};
 
-export const href = `pagination`;
+const Pagination_Usage = (props: Props) => {
+  return (
+    <div className="">
+      <Index
+        totalPages={20}
+        onPageChange={(page) => console.log(`Page changed to ${page}`)}
+      />
+    </div>
+  );
+};
+
+export default Pagination_Usage;

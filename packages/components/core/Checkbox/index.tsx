@@ -1,10 +1,14 @@
-// Exports for Rendering Individual Component
-export * from "./code_text";
-export * from "./description";
-export * from "./src";
-export * from "./usage";
+import React from "react";
+import { CheckBox } from "./src";
 
-// Exports for Reference
-export const Title = `Checkbox`;
+type Props = {};
 
-export const href = `checkbox`;
+const Checkbox_Usage = (props: Props) => {
+  return (
+    <div className="">
+      <CheckBox onChange={(checked) => console.log(checked)} />
+    </div>
+  );
+};
+
+export default Checkbox_Usage;

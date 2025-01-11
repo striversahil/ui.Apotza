@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { CheckBox } from "../Checkbox";
+import { CheckBox } from "@repo/components/core/Checkbox/src";
 
 interface Column {
   head: string;

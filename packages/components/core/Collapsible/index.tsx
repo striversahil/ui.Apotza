@@ -1,10 +1,10 @@
-// Exports for Rendering Individual Component
-export * from "./code_text";
-export * from "./description";
-export * from "./src";
-export * from "./usage";
+import React from "react";
+import { Collapsible } from "./src";
 
-// Exports for Reference
-export const Title = `This is a title.`;
+type Props = {};
 
-export const href = `template`;
+const Collapsible_Usage = (props: Props) => {
+  return <div className=""></div>;
+};
+
+export default Collapsible_Usage;

@@ -2,13 +2,13 @@ import * as Slug from "@repo/components";
 
 import Template_Usage from "@repo/components/core/__template";
 
-import * as Table from "@repo/components/core/Table";
-import * as Pagination from "@repo/components/core/Pagination";
-import * as Toast from "@repo/components/core/Toast";
-import * as Checkbox from "@repo/components/core/Checkbox";
-import * as Dialog from "@repo/components/core/DialogBox";
-import * as Switch from "@repo/components/core/Switch";
-import * as Tooltip from "@repo/components/core/Tooltip";
+import Table_Usage from "@repo/components/core/Table";
+import Pagination_Usage from "@repo/components/core/Pagination";
+import Toast_Usage from "@repo/components/core/Toast";
+import Checkbox_Usage from "@repo/components/core/Checkbox";
+import Dialog_Usage from "@repo/components/core/DialogBox";
+import Switch_Usage from "@repo/components/core/Switch";
+import Tooltip_Usage from "@repo/components/core/Tooltip";
 
 interface Props {
   // title: string;
@@ -19,13 +19,13 @@ interface Props {
 }
 
 export const data: { [key: string]: Props } = {
-  table: Table.Usage,
-  pagination: Pagination.Usage,
-  toast: Toast.Usage,
-  checkbox: Checkbox.Usage,
-  dialog_box: Dialog.Usage,
-  switch: Switch.Usage,
-  tooltip: Tooltip.Usage,
+  table: Table_Usage,
+  pagination: Pagination_Usage,
+  toast: Toast_Usage,
+  checkbox: Checkbox_Usage,
+  dialog: Dialog_Usage,
+  switch: Switch_Usage,
+  tooltip: Tooltip_Usage,
   template: Template_Usage,
 
   // pagination: {

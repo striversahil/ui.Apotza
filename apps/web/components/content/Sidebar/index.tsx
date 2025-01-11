@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Reference } from "@/constants/Sidebar";
+import { Reference } from "@/constants/Sidebar_Reference";
 import Navigation_button from "./Button";
 
 type Props = {};

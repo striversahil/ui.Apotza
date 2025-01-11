@@ -1,10 +1,23 @@
-// Exports for Rendering Individual Component
-export * from "./code_text";
-export * from "./description";
-export * from "./src";
-export * from "./usage";
+import React from "react";
+import { Index } from "./src";
 
-// Exports for Reference
-export const Title = `Dialog Box`;
+type Props = {};
 
-export const href = `dialog_box`;
+const Dialog_Usage = (props: Props) => {
+  const Trigger = (): React.ReactNode => {
+    return (
+      <div className="flex text-center px-3 py-2 bg-red-300 rounded-[5px]">
+        This is Trigger
+      </div>
+    );
+  };
+  return (
+    <div className="">
+      <Index trigger={<Trigger />} title="This is Title">
+        <div>Sahil is Great</div>
+      </Index>
+    </div>
+  );
+};
+
+export default Dialog_Usage;
