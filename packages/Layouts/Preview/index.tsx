@@ -9,8 +9,8 @@ type Props = {
 const PreviewCode = (props: Props) => {
   return (
     <div>
-      PreviewCode
       <Sidebar.Sidebar>{props.children}</Sidebar.Sidebar>
+      <Sidebar.SidebarContent>{props.code}</Sidebar.SidebarContent>
     </div>
   );
 };
